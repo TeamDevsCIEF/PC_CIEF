@@ -8,25 +8,32 @@
 }
 
 :root{
+    --primary-blue-color:#6abfe7;
     --secondary-color:#f6e4d27b;
 }
+
+
+:lang(es) .cat, input#es:checked ~ body .cat {
+    display: none;
+}
+
+:lang(cat) .es, #cat:target ~ .es {
+    display: none;
+}
+
 body {
     background-image: url(../img/background.png);
     background-size: cover;
-
-    :lang(es) .cat {
-        display: none;
-    }
-
-    :lang(cat) .es {
-        display: none;
-    }
-
     .WL{
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
     }
     
+    h2{
+        font-family: "Amita", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
   
 }
 
@@ -119,13 +126,13 @@ main {
         justify-content: center;
         text-wrap: wrap;
 
-        
-
         .Destinacions_section_h2 {
             text-align: center;
             padding-top: 8vh;
             grid-column-start: 1;
             grid-column-end: -1;
+            font-family: "Amita", serif;
+
             span {
                 font-family: "Amita", serif;
                 font-weight: 400;
@@ -133,7 +140,15 @@ main {
                 font-size: 3.5vw;
             }
         }
+
+        h2{
+            font-family: "Amita", serif;
+            text-align: center;
+        }    
         
+        img{
+            width: 100%;
+        }
     }
 
 
@@ -151,6 +166,7 @@ main {
                 padding-top: 8vh;
                 grid-column-start: 1;
                 grid-column-end: -1;
+                color: var(--primary-blue-color);
                 span {
                     font-family: "Amita", serif;
                     font-weight: 400;
@@ -159,11 +175,62 @@ main {
                 }
             }
 
-            img{
-                text-align: center;
+            article{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: white;
+                padding: 20px;
+                img{
+                    width: 100px;
+                }
+
+                h2{
+                    color: var(--primary-blue-color);
+                    font-family: "Amita", serif;
+                    
+                }
             }
         }
     
 
         }
+
+    .QuiSom_section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+        align-items: center;
+        padding: 70px;
+
+        h2{
+            text-align: center;
+            grid-column: 1/span 2;
+            font-family: "Amita", serif;
+
+            
+            
+        }
+
+        img{
+            border-radius: 50%;
+            width: 100%;
+        }
+
+        p{
+            
+        }
+    }
+}
+
+footer {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-blue-color);
+    font-size: 3.5vw;
+
 }

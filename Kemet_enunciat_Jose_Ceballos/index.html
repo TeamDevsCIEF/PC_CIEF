@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cat">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,15 +26,27 @@
         <div class="dropLang__container">
             <input type="checkbox" id="langToggle">
             <label for="langToggle" class="current-lang">
-                <img src="./logos/banderaCAT.svg" alt="CAT">
+                <img class="cat" id="catFlag" src="./logos/banderaCAT.svg" alt="CAT">
+                <img class="es" id="esFlag" src="./logos/banderaES.svg" alt="ES">
             </label>
             <div class="dropdown">
                 <div class="dropdown-content">
-                    <a href="#" data-lang="es"><img src="./logos/banderaES.svg" alt="ES"> ES</a>
-                    <a href="#" data-lang="cat"><img src="./logos/banderaCAT.svg" alt="CAT"> CAT</a>
+                    <a href="#es"><img src="./logos/banderaES.svg" alt="ES"> ES</a>
+                    <a href="#cat"><img src="./logos/banderaCAT.svg" alt="CAT"> CAT</a>
                 </div>
             </div>
         </div>
+        <!--div class="dropLang__container">
+            <input type="radio" id="es" name="lang" checked>
+            <label for="es" class="current-lang">
+                <img class="es" id="esFlag" src="./logos/banderaES.svg" alt="ES">
+            </label>
+            <input type="radio" id="cat" name="lang">
+            <label for="cat" class="current-lang">
+                <img class="cat" id="catFlag" src="./logos/banderaCAT.svg" alt="CAT">
+            </label>
+        </div-->
+    
     </header>
     <nav></nav>
     <main>
@@ -71,13 +83,10 @@
                 <img src="./img/karnak_600px.avif" alt="abu simbel">
                 <h2>El Nil</h2>
                 <p class="es">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, deserunt architecto. Aliquid saepe inventore cupiditate cum quidem perspiciatis eum nisi laboriosam voluptate obcaecati ducimus nemo autem praesentium, unde magni mollitia.
-                    Et animi vel non facere, sed rem voluptatibus assumenda omnis ipsam minima, nesciunt est fugit nobis. Eligendi modi minima, tempore dicta dolor quisquam dolorum nihil, nemo fuga iusto in sapiente?
-                    Voluptatibus optio, animi consequatur non odio, possimus ea similique obcaecati iure expedita eos voluptate necessitatibus est tempore. Tempora nobis, perspiciatis necessitatibus delectus sint non, quidem soluta obcaecati similique voluptates at!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi cumque voluptatum molestias consequatur voluptates, dolorem perspiciatis doloribus? Reprehenderit nostrum, laudantium enim maxime magni eius, dolorem quasi fugit, placeat aspernatur accusantium!
                 </p>
                 <p class="cat">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut necessitatibus omnis, quas quos architecto optio provident suscipit asperiores nostrum sed iste odit fuga eius soluta! Aliquam numquam rerum incidunt eaque?
-                    Reiciendis laborum ipsa rem, tempora laudantium accusantium dicta cupiditate quibusdam quae. Quis debitis quam neque possimus architecto nam voluptatem quidem explicabo dolorum, quae quasi tempora amet est error autem molestias!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae impedit porro, id, tempore alias vel dolor facere, quaerat itaque sit debitis eligendi eveniet error delectus perferendis quae esse vero nobis!
                 </p>
             </article>
 
@@ -109,11 +118,74 @@
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis eaque in placeat ipsa nulla illum et quidem suscipit? Fugiat dolor nemo sunt commodi asperiores repellat cum necessitatibus corrupti explicabo? Nihil?                
                     </p>
                 </article>
+
+                <article>
+                    <img src="./icons/transporte.webp" alt="transporte">
+                    <h2>Transporte privado</h2>
+                    <p class="es">
+                        Todos los desplazamientos de nuestros viajes se realizan en vehículo privado con chófer, con total confort y flexibilidad.                    </p>
+                    <p class="cat">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis eaque in placeat ipsa nulla illum et quidem suscipit? Fugiat dolor nemo sunt commodi asperiores repellat cum necessitatibus corrupti explicabo? Nihil?                
+                    </p>
+                </article>
+
+                <article>
+                    <img src="./icons/destinos.webp" alt="destinos">
+                    <h2>Destinos a tu gusto</h2>
+                    <p class="es">
+                        Nuestros circuitos admiten las variantes que quieras: playas tranquilas, oasis poco transitados, monumentos menos conocidos…                    </p>
+                    <p class="cat">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis eaque in placeat ipsa nulla illum et quidem suscipit? Fugiat dolor nemo sunt commodi asperiores repellat cum necessitatibus corrupti explicabo? Nihil?                
+                    </p>
+                </article>
+
+                <article>
+                    <img src="./icons/gastronomia.webp" alt="gastronomia">
+                    <h2>Gastronomía exquisita</h2>
+                    <p class="es">
+                        Los restaurantes con los que trabajamos son siempre de la máxima calidad, para que la cocina sea un aliciente más
+                    </p>
+                    <p class="cat">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis eaque in placeat ipsa nulla illum et quidem suscipit? Fugiat dolor nemo sunt commodi asperiores repellat cum necessitatibus corrupti explicabo? Nihil?                
+                    </p>
+                </article>
+
+                <article>
+                    <img src="./icons/guias.webp" alt="guias">
+                    <h2>Acompañamiento total</h2>
+                    <p class="es">
+                        Durante el viaje, asignaremos personal de acompañamiento para que os sintáis arropados en todo momento, sin renunciar al tiempo libre.
+                    </p>
+                    <p class="cat">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis eaque in placeat ipsa nulla illum et quidem suscipit? Fugiat dolor nemo sunt commodi asperiores repellat cum necessitatibus corrupti explicabo? Nihil?                
+                    </p>
+                </article>
+
+                <article>
+                    <img src="./icons/papeleo.webp" alt="papeleo">
+                    <h2>Ayuda con los papeleos</h2>
+                    <p class="es">
+                        Desde el momento de la llegada, te ayudaremos con los trámites que sean necesarios, empezando con el visado en el aeropuerto.
+                    </p>
+                    <p class="cat">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis eaque in placeat ipsa nulla illum et quidem suscipit? Fugiat dolor nemo sunt commodi asperiores repellat cum necessitatibus corrupti explicabo? Nihil?                
+                    </p>
+                </article>
             </div>
 
 
         </section>
+
+        <section class="QuiSom_section WL">
+            <h2>Qui som</h2>
+            <img src="./img/equip.jpg" alt="equip">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae mollitia velit, dicta architecto debitis impedit, iure dolore unde dignissimos pariatur, distinctio totam. Molestias ab ut eos odit eius! Architecto, beatae.
+            Praesentium inventore magni cupiditate omnis reiciendis hic voluptatem amet natus perferendis, excepturi cumque perspiciatis quibusdam explicabo optio nisi similique. Qui officia nihil magni. Quo, sapiente dignissimos impedit alias esse tempore?</p>
+        </section>
     </main>
-    <footer></footer>
+    <footer>
+        <h2>&copy Kemet</h2>
+        <h4><span class="cat">Especialistes en Egipte</span><span class="es">Especialistas en Egipto</span></h4>
+    </footer>
 </body>
 </html>
