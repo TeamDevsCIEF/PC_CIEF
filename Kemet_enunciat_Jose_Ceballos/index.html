@@ -23,18 +23,28 @@
             <img class="header_bg" src="./img/esfinx_600x600px.png" alt="esfinx">
         </picture>
 
-        <div class="dropdown">
-            <div class="dropdown-content">
-                <a href="#" data-lang="es"><img src="flags/es.png" alt="ES"> ES</a>
-                <a href="#" data-lang="en"><img src="flags/en.png" alt="EN"> EN</a>
-                <a href="#" data-lang="fr"><img src="flags/fr.png" alt="FR"> FR</a>
+        <div class="dropLang__container">
+            <input type="checkbox" id="langToggle">
+            <label for="langToggle" class="current-lang">
+                <img src="./logos/banderaCAT.svg" alt="CAT">
+            </label>
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <a href="#" data-lang="es"><img src="./logos/banderaES.svg" alt="ES"> ES</a>
+                    <a href="#" data-lang="cat"><img src="./logos/banderaCAT.svg" alt="CAT"> CAT</a>
+                </div>
             </div>
         </div>
     </header>
     <nav></nav>
     <main>
-        <h2><span class="cat">Destinacions</span><span class="es">Destinos</span></h2>
-        <section class="">
+        <h1 style="display: none;">
+            ¡La mejor agencia de viajes para visitar Egipto! Nos encargamos de todo, con la mejor oferta de hoteles y excursiones.
+        </h1>
+        
+        <section class="Destinacions_section WL">
+            <h2 class="Destinacions_section_h2"><span class="cat">Destinacions</span><span class="es">Destinos</span></h2>
+            
             <article>
                 <img src="./img/abu-simbel_600px.avif" alt="abu simbel">
                 <h2>Abu Simbel</h2>
@@ -56,6 +66,52 @@
                     El complex de Karnak és el conjunt del culte religiós conegut més antic del món. Un museu enorme a l'aire lliure mostra importants restes de la cultura de l'antic Egipte.
                 </p>
             </article>
+
+            <article>
+                <img src="./img/karnak_600px.avif" alt="abu simbel">
+                <h2>El Nil</h2>
+                <p class="es">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, deserunt architecto. Aliquid saepe inventore cupiditate cum quidem perspiciatis eum nisi laboriosam voluptate obcaecati ducimus nemo autem praesentium, unde magni mollitia.
+                    Et animi vel non facere, sed rem voluptatibus assumenda omnis ipsam minima, nesciunt est fugit nobis. Eligendi modi minima, tempore dicta dolor quisquam dolorum nihil, nemo fuga iusto in sapiente?
+                    Voluptatibus optio, animi consequatur non odio, possimus ea similique obcaecati iure expedita eos voluptate necessitatibus est tempore. Tempora nobis, perspiciatis necessitatibus delectus sint non, quidem soluta obcaecati similique voluptates at!
+                </p>
+                <p class="cat">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut necessitatibus omnis, quas quos architecto optio provident suscipit asperiores nostrum sed iste odit fuga eius soluta! Aliquam numquam rerum incidunt eaque?
+                    Reiciendis laborum ipsa rem, tempora laudantium accusantium dicta cupiditate quibusdam quae. Quis debitis quam neque possimus architecto nam voluptatem quidem explicabo dolorum, quae quasi tempora amet est error autem molestias!
+                </p>
+            </article>
+
+            <article>
+                <img src="./img/karnak_600px.avif" alt="abu simbel">
+                <h2>Siwa</h2>
+                <p class="es">
+                    El Oasis de Siwa, un rincón mágico en el corazón del desierto egipcio, emerge como un espejismo en medio de la aridez.                </p>
+                <p class="cat">
+                    El complex de Karnak és el conjunt del culte religiós conegut més antic del món. Un museu enorme a l'aire lliure mostra importants restes de la cultura de l'antic Egipte.
+                </p>
+            </article>
+
+            
+        </section>
+
+        <section class="Servicios_section">
+
+            <div class="Servicios_section_container WL">
+                <h2 class="Servicios_section_h2"><span class="cat">Serveis</span><span class="es">Servicios</span></h2>
+
+                <article>
+                    <img src="./icons/alojamientos.webp" alt="alojamientos">
+                    <h2>Alojamientos premium</h2>
+                    <p class="es">
+                        Seleccionaremos los mejores hoteles y cruceros para que cada noche de tu viaje sea confortable y especial.
+                    </p>
+                    <p class="cat">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis eaque in placeat ipsa nulla illum et quidem suscipit? Fugiat dolor nemo sunt commodi asperiores repellat cum necessitatibus corrupti explicabo? Nihil?                
+                    </p>
+                </article>
+            </div>
+
+
         </section>
     </main>
     <footer></footer>
