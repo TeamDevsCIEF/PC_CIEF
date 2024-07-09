@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    
+}
+
+
+body{
+    background-image: url(../img/background.png); 
+    background-size: cover;
+     
+    h2{
+        text-align: center;
+        padding-top: 8vh;
+        span{
+            font-family: "Amita", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 3.5vw;
+        }      
+    }
+
+    :lang(es) .cat {
+        display: none;
+    }
+
+    :lang(cat) .es {
+        display: none;
+    }
+
+}
+
+header {
+    .header_bg {
+        width: 100%;
+    }
+
+    .header_logo {
+        width: 100%;
+        width: 20vw;
+        position: absolute;
+        left: 4vw;
+        top: 4vw;
+
+        @media (max-width: 600px) {
+            width: 25vw;
+            left: 65vw;
+        }
+    }
+
+    .dropLang__container {
+        position: relative;
+        display: inline-block;
+    
+        .current-lang {
+            cursor: pointer;
+            img {
+                width: 40px;
+                height: auto;
+                border-radius: 50%;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+        }
+    
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            display: none;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+    
+            .dropdown-content {
+                display: flex;
+                flex-direction: column;
+    
+                a {
+                    padding: 10px 15px;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    color: black;
+                    font-size: 16px;
+    
+                    &:hover {
+                        background-color: #f1f1f1;
+                    }
+    
+                    img {
+                        width: 20px;
+                        height: auto;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    
+        &:hover .dropdown {
+            display: block;
+        }
+    }
+    
+}

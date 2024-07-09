@@ -1,0 +1,9 @@
+#imagen{
+    width: 200px;
+    height: 200px;
+    background-image: url(img.webp);
+    background-position: center;
+    background-attachment:fixed ;
+    background-size: contain;
+
+}
