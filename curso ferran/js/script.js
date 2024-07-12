@@ -1,8 +1,7 @@
-let num1=20
-let num2=3
+const GENERAR_TABLA=(numeroMultiplicar, longitud)=>{
+    for(let numInicial=1;numInicial<=longitud;numInicial++){
+        console.log( `${numeroMultiplicar} X ${numInicial} = ${numeroMultiplicar*numInicial}`)}
+}
 
-let res= num1%num2
 
-console.log(this)
-
-console.log()
+GENERAR_TABLA(2,5)
