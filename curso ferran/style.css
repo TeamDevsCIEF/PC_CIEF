@@ -1,3 +1,110 @@
-h1{
-    color: rebeccapurple;
+body {
+    background-image: url(./img/bg.jpg);
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+
+    h1{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.opciones {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 5vw;
+    justify-content: center;
+}
+
+#piedra, #papel, #tijeras, #finish {
+    width: 20vw;
+    height: 20vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#piedra {
+    background-image: url(./img/piedra.png);
+}
+
+.Piedra{
+    background-image: url(./img/piedra.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+#papel {
+    background-image: url(./img/papel.png);
+    transform: rotate(90deg);
+}
+
+.Papel{
+    background-image: url(./img/papel.png);
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+
+}
+
+#tijeras {
+    background-image: url(./img/tijera.png);
+
+    
+}
+
+.Tijeras{
+    background-image: url(./img/tijera.png);
+}
+
+#finish {
+    background-color: var(--color__fons_section_footer);
+    font-size: 50px;
+    text-align: center;
+}
+
+#manosContainer {
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#manoHumano, #manoMaquina {
+    width: 20vw;
+    height: 20vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#manoHumano.turnoPiedra,
+#manoHumano.turnoPapel,
+#manoHumano.turnoTijeras,
+#manoMaquina.turnoPiedra,
+#manoMaquina.turnoPapel,
+#manoMaquina.turnoTijera {
+    animation: shakeHand 2s linear;
+}
+
+@keyframes shakeHand {
+    0%, 100% { 
+        transform: rotate(0deg);
+        background-image: url(./img/piedra.png);
+     }
+    20% { transform: rotate(20deg); }
+    40% { transform: rotate(-20deg); }
+    60% { transform: rotate(10deg); }
+    80% { transform: rotate(-10deg); }
+}
+.hidden{
+    display: none !important; 
 }

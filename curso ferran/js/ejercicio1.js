@@ -1,79 +1,99 @@
-/*
-1- Tener claros los requerimientos (Reglas del Juego)
-2- Dividir el proyecto en partes
-    2.1  solucionar la logica una partida
-    2.2  solucionar las posibles entradas de informacion erroneas por parte del usuario
-    2.3  permitir jugar varias veces (ma´+rcador)
-    2.4 trasladar el juego a una pagina web (GUI)
-    2.5 publicar el juego
-3- empezar por la mas basica
-4-  
-*/
+const OPCIONES = ["Piedra", "Papel", "Tijeras"];
+let ganadasHumano = 0, ganadasMaquina = 0, partidasJugadas = 0, empate = 0;
+let continuaJugando = true;
 
+const combinacionGanadora = (combo) => {  
+    let comboGanador = "";
+    if (combo.includes("Piedra")) {
+        if (combo.includes("Papel")) comboGanador = "Papel";
+        else if (combo.includes("Tijeras")) comboGanador = "Piedra";
+    } else if (combo.includes("Papel")) {
+        if (combo.includes("Tijeras")) comboGanador = "Tijeras";
+        else if (combo.includes("Piedra")) comboGanador = "Papel";
+    }        
+    return comboGanador;
+};
 
-// NORMAS DEL JUEGO
+const esperarEleccionHumano = () => {
+    return new Promise((resolve) => {
+        const piedra = document.getElementById("piedra");
+        const papel = document.getElementById("papel");
+        const tijeras = document.getElementById("tijeras");
+        const finish = document.getElementById("finish");
 
-// Jugaremos contra la máquina
+        piedra.addEventListener("click", () => resolve("1"));
+        papel.addEventListener("click", () => resolve("2"));
+        tijeras.addEventListener("click", () => resolve("3"));
+        finish.addEventListener("click", () => resolve("X"));
+    });
+};
 
-// Hay tres posibilidades:
-// cada una puede ganar, perder o empatar con las otra de las demás
-// P.e.: piedra gana a tijeras, pierde con papel y empata con piedra
+const mostrarAnimacion = (jugadaHumano, jugadaMaquina) => {
+    return new Promise((resolve) => {
+        const manoHumano = document.getElementById("manoHumano");
+        const manoMaquina = document.getElementById("manoMaquina");
+        const opciones= document.querySelector(".opciones")
+        const manosContainer= document.querySelector("#manosContainer")
 
-let nombreJugador = ""
+        opciones.className="hidden"
+        manosContainer.className=""
+        manoHumano.className = `turno${jugadaHumano}`;
+        manoMaquina.className = `turno${jugadaMaquina}`;
 
-let menu = `
-OPCIONES DEL JUEGO
-==================
-Debes elegir una opción:
+        setTimeout(() => {
+            manoHumano.className = `${jugadaHumano}`;
+            manoMaquina.className = `${jugadaMaquina}`;
+        }, 2000);  
 
-1. Piedra
-2. Papel
-3. Tijeras
-X. Finaliza el juego
+        setTimeout(() => {
+            manoHumano.className = "";
+            manoMaquina.className = "";
+            opciones.className="opciones"
+            manosContainer.className="hidden"
 
-Cualquier otra opción reinicia el juego
-`
-const OPCIONES=["Piedra","Papel","Tijeras"]
+            resolve();
+        }, 4000); 
+    });
+};
 
-const COMBINACIONES={
-    "PiedraPapel":"Papel",
-    "PiedraTijeras":"Piedra",
-    "PiedraPiedra":null,
-    "PapelPiedra":"Papel",
-    "PapelTijeras":"Tijeras",
-    "PapelPapel":null,
-    "TijerasPiedra":"Piedra",
-    "TijerasPapel":"Tijeras",
-    "TijerasTijeras":null,
-}
+const jugar = async () => {
+    while (continuaJugando) {
+        const eleccionHumano = await esperarEleccionHumano();
 
-let eleccionHumano = 1
-let jugadaHumano= OPCIONES[eleccionHumano-1]
-
-
-//if(parseInt(eleccionHumano) || eleccionHumano==="X"){}
-
-const generadorJugadaAuto=()=> Math.floor(Math.random()*3+1)
-let jugadaMaquina=OPCIONES[generadorJugadaAuto]
-
-let combinacionGanadora=(combo)=> {  
-    let comboGanador="";
-    console.log(combo.includes("Piedra") && combo.includes("Papel"))
-    switch(combo){
-        case combo.includes("Piedra") && combo.includes("Papel"):{comboGanador= "Papel" 
-            
+        if (eleccionHumano === "X") {
+            continuaJugando = false;
+            break;
         }
+
+        let jugadaHumano = OPCIONES[parseInt(eleccionHumano) - 1];
+        const generadorJugadaAuto = () => Math.floor(Math.random() * 3 + 1);
+        let jugadaMaquina = OPCIONES[generadorJugadaAuto() - 1];
+
+        await mostrarAnimacion(jugadaHumano, jugadaMaquina);
+
+        let resultadoTexto = `Tu jugada: ${jugadaHumano}, Jugada de la máquina: ${jugadaMaquina}. `;
+        if (jugadaHumano !== jugadaMaquina) {
+            if (combinacionGanadora([jugadaHumano, jugadaMaquina]) === jugadaHumano) {
+                resultadoTexto += "¡Ganaste!";
+                ganadasHumano++;
+            } else {
+                resultadoTexto += "¡Perdiste!";
+                ganadasMaquina++;
+            }
+        } else {
+            resultadoTexto += "Empate";
+            empate++;
+        }
+
+        document.getElementById("resultado").innerText = resultadoTexto;
+        partidasJugadas++;
+        document.getElementById("partidasJugadas").innerText = `Partidas jugadas: ${partidasJugadas}`;
+        document.getElementById("ganadasHumano").innerText = `Partidas ganadas por ti: ${ganadasHumano}`;
+        document.getElementById("ganadasMaquina").innerText = `Partidas ganadas por la máquina: ${ganadasMaquina}`;
+        document.getElementById("empate").innerText = `Empates: ${empate}`;
     }
-return comboGanador;
-}
 
-console.log(combinacionGanadora(["Piedra","Papel"]))
-if(eleccionHumano===generadorJugadaAuto){
- console.log("empate")   
-}
-else if(true){
-    console.log("Haz pperdido")
-}
+    alert('Fin del juego');
+};
 
-
- 
+jugar();

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+label{
+  display:inline-block;
+  width:69px;
+  font-size:0.7em;
+  text-align:right;
+  margin-right:3px;
+}
+input, select{
+  font-family: 'Montserrat', sans-serif;
+  outline:none;
+  width:50px;
+  margin-bottom:3px;
+}
+#total{
+  width:auto;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+appearance: none;
+}
