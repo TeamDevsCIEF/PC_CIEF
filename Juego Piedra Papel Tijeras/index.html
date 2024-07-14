@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>PIEDRA, PAPEL, TIJERAS</h1>
+    <p>Debes elegir una opción:</p>
+    
+    <ul class="opciones">
+        <li id="piedra"></li>
+        <li id="papel"></li>
+        <li id="tijeras"></li>
+        <li id="finish">❌</li>
+    </ul>
+
+    <div id="manosContainer" class="hidden">
+        <div id="manoHumano" class=""></div>
+        <div id="manoMaquina" class=""></div>
+    </div>
+ 
+    <div>
+        <ul>
+            <li id="partidasJugadas">Partidas jugadas: 0</li>
+            <li id="ganadasHumano">Partidas ganadas por ti: 0</li>
+            <li id="ganadasMaquina">Partidas ganadas por la máquina: 0 </li>
+            <li id="empate">Empatadas: 0</li>
+        </ul>
+
+        <div id="resultado"></div>
+    </div>
+</body>
+<script src="./js/ejercicio1.js"></script>
+
+</html>
