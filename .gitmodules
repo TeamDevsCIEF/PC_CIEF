@@ -1,3 +1,9 @@
 [submodule "PC_CIEF"]
     path = PC_CIEF
     url = https://github.com/TeamDevsCIEF/PC_CIEF
+[submodule "eCommerce"]
+    path = eCommerce
+    url = https://github.com/TeamDevsCIEF/eCommerce
+[submodule "practica1"]
+    path = practica1
+    url = https://github.com/TeamDevsCIEF/practica1
