@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch with Proxy</title>
+</head>
+<body>
+    <h1>Fetch with Proxy Example</h1>
+    <button id="fetchButton">Fetch Data</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', () => {
+            fetchData();
+        });
+
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:3000/proxy');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.text();
+                displayData(data);
+            } catch (error) {
+                displayError(error);
+            }
+        }
+
+        function displayData(data) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<pre>${data}</pre>`;
+        }
+
+        function displayError(error) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        }
+    </script>
+</body>
+</html>

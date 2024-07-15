@@ -1,0 +1,29 @@
+:root{
+    --gradientColor_1:linear-gradient(90deg, #a35d5a,#80324e,#530d47);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    height: 100vh;
+    background-image: var(--gradientColor_1) ;
+}
+
+
+.loginContainer{
+    display: grid;
+    align-content: center;
+    width: 33.3vw;
+    height: 90vh;
+    margin: auto auto;
+    text-align: center;
+    background-color: aliceblue;
+
+    .loginContainer__inputContainer{
+        display: grid;
+    }
+} 

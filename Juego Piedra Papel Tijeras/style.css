@@ -1,5 +1,6 @@
 body {
-    background-image: url(./img/bg.jpg);
+    background-image: url(./img/wall.jpg);
+    background-size: cover;
     color: white;
     font-family: Arial, sans-serif;
     font-size: 1.5rem;
@@ -107,4 +108,36 @@ body {
 }
 .hidden{
     display: none !important; 
+}
+
+.win{
+    color:green;
+    font-weight:bold;
+
+    animation: resultado 1s ease;
+    font-size: 3rem;
+    transition:all 0.3s;
+}
+
+.lose{
+    color:rgb(102, 9, 9);
+    font-weight:bold;
+    animation: resultado 1s ease;
+    font-size: 3rem;
+    transition:all 0.3s;
+}
+
+.empate{
+    color:orange;
+    font-weight:bold;
+    animation: resultado 1s ease;
+    font-size: 3rem;
+    transition:all 0.3s;
+}
+
+
+
+@keyframes resultado {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

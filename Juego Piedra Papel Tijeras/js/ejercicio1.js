@@ -1,17 +1,32 @@
-const OPCIONES = ["Piedra", "Papel", "Tijeras"];
-let ganadasHumano = 0, ganadasMaquina = 0, partidasJugadas = 0, empate = 0;
-let continuaJugando = true;
+
+const INDICADORES={
+    OPCIONES : ["Piedra", "Papel", "Tijeras"],
+    generadorJugadaAuto:() => Math.floor(Math.random() * 3 + 1),
+    ganadasHumano:0,
+    ganadasMaquina:0,
+    partidasJugadas:0,
+    empate:0,
+    continuaJugando:true,
+    jugadas: {
+        maquina:"" ,
+        humano:"",
+        resultado:"",
+        resultadoTexto: function()
+            { 
+                return`Tu jugada: ${this.humano}, Jugada de la máquina: ${this.maquina}. ${this.resultado}`
+            }
+    }
+};
+
 
 const combinacionGanadora = (combo) => {  
-    let comboGanador = "";
     if (combo.includes("Piedra")) {
-        if (combo.includes("Papel")) comboGanador = "Papel";
-        else if (combo.includes("Tijeras")) comboGanador = "Piedra";
+        if (combo.includes("Papel")) return "Papel";
+        else if (combo.includes("Tijeras")) return "Piedra";
     } else if (combo.includes("Papel")) {
-        if (combo.includes("Tijeras")) comboGanador = "Tijeras";
-        else if (combo.includes("Piedra")) comboGanador = "Papel";
+        if (combo.includes("Tijeras")) return "Tijeras";
+        else if (combo.includes("Piedra")) return "Papel";
     }        
-    return comboGanador;
 };
 
 const esperarEleccionHumano = () => {
@@ -28,7 +43,7 @@ const esperarEleccionHumano = () => {
     });
 };
 
-const mostrarAnimacion = (jugadaHumano, jugadaMaquina) => {
+const mostrarAnimacion = () => {
     return new Promise((resolve) => {
         const manoHumano = document.getElementById("manoHumano");
         const manoMaquina = document.getElementById("manoMaquina");
@@ -37,12 +52,12 @@ const mostrarAnimacion = (jugadaHumano, jugadaMaquina) => {
 
         opciones.className="hidden"
         manosContainer.className=""
-        manoHumano.className = `turno${jugadaHumano}`;
-        manoMaquina.className = `turno${jugadaMaquina}`;
+        manoHumano.className = `turno${INDICADORES.jugadas.humano}`;
+        manoMaquina.className = `turno${INDICADORES.jugadas.maquina}`;
 
         setTimeout(() => {
-            manoHumano.className = `${jugadaHumano}`;
-            manoMaquina.className = `${jugadaMaquina}`;
+            manoHumano.className = `${INDICADORES.jugadas.humano}`;
+            manoMaquina.className = `${INDICADORES.jugadas.maquina}`;
         }, 2000);  
 
         setTimeout(() => {
@@ -57,40 +72,43 @@ const mostrarAnimacion = (jugadaHumano, jugadaMaquina) => {
 };
 
 const jugar = async () => {
-    while (continuaJugando) {
+    while (INDICADORES.continuaJugando) {
         const eleccionHumano = await esperarEleccionHumano();
 
         if (eleccionHumano === "X") {
-            continuaJugando = false;
+            INDICADORES.continuaJugando = false;
             break;
         }
 
-        let jugadaHumano = OPCIONES[parseInt(eleccionHumano) - 1];
-        const generadorJugadaAuto = () => Math.floor(Math.random() * 3 + 1);
-        let jugadaMaquina = OPCIONES[generadorJugadaAuto() - 1];
+        INDICADORES.jugadas.humano  = INDICADORES.OPCIONES[parseInt(eleccionHumano) - 1];
+        
+        INDICADORES.jugadas.maquina= INDICADORES.OPCIONES[ INDICADORES.generadorJugadaAuto() - 1];
 
-        await mostrarAnimacion(jugadaHumano, jugadaMaquina);
+        await mostrarAnimacion();
 
-        let resultadoTexto = `Tu jugada: ${jugadaHumano}, Jugada de la máquina: ${jugadaMaquina}. `;
-        if (jugadaHumano !== jugadaMaquina) {
-            if (combinacionGanadora([jugadaHumano, jugadaMaquina]) === jugadaHumano) {
-                resultadoTexto += "¡Ganaste!";
-                ganadasHumano++;
+
+        
+        if (INDICADORES.jugadas.humano !== INDICADORES.jugadas.maquina) {
+            if (combinacionGanadora([INDICADORES.jugadas.humano, INDICADORES.jugadas.maquina]) === INDICADORES.jugadas.humano) {
+                INDICADORES.jugadas.resultado = "<span class='win'>¡Ganaste!</span>";
+                INDICADORES.ganadasHumano++;
             } else {
-                resultadoTexto += "¡Perdiste!";
-                ganadasMaquina++;
+                INDICADORES.jugadas.resultado = "<span class='lose'>¡Perdiste!</span>";
+                INDICADORES.ganadasMaquina++;
             }
         } else {
-            resultadoTexto += "Empate";
-            empate++;
+            INDICADORES.jugadas.resultado = "<span class='empate'>Empate!</span>";
+            INDICADORES.empate++;
         }
+        
 
-        document.getElementById("resultado").innerText = resultadoTexto;
-        partidasJugadas++;
-        document.getElementById("partidasJugadas").innerText = `Partidas jugadas: ${partidasJugadas}`;
-        document.getElementById("ganadasHumano").innerText = `Partidas ganadas por ti: ${ganadasHumano}`;
-        document.getElementById("ganadasMaquina").innerText = `Partidas ganadas por la máquina: ${ganadasMaquina}`;
-        document.getElementById("empate").innerText = `Empates: ${empate}`;
+        document.getElementById("resultado").innerHTML = INDICADORES.jugadas.resultadoTexto() ;
+        console.log("INDICADIRES",INDICADORES)
+        INDICADORES.partidasJugadas++;
+        document.getElementById("partidasJugadas").innerText = `Partidas jugadas: ${INDICADORES.partidasJugadas}`;
+        document.getElementById("ganadasHumano").innerText = `Partidas ganadas por ti: ${INDICADORES.ganadasHumano}`;
+        document.getElementById("ganadasMaquina").innerText = `Partidas ganadas por la máquina: ${INDICADORES.ganadasMaquina}`;
+        document.getElementById("empate").innerText = `Empates: ${INDICADORES.empate}`;
     }
 
     alert('Fin del juego');
