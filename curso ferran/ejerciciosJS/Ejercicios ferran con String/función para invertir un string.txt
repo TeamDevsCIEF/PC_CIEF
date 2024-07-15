@@ -1,0 +1,3 @@
+función para invertir un string
+si dos string son palindronos
+dado un string cuente la cantidad de letras que aparecen por separado
