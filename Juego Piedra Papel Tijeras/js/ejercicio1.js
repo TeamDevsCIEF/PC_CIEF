@@ -1,17 +1,16 @@
-const OPCIONES = ["Piedra", "Papel", "Tijeras"];
-let ganadasHumano = 0, ganadasMaquina = 0, partidasJugadas = 0, empate = 0;
-let continuaJugando = true;
+const obj ={
+    OPCIONES: ["Piedra", "Papel", "Tijeras"],
+    ganadasHumano: 0, ganadasMaquina : 0, partidasJugadas : 0, empate : 0,
+    continuaJugando : true,}
 
 const combinacionGanadora = (combo) => {  
-    let comboGanador = "";
     if (combo.includes("Piedra")) {
-        if (combo.includes("Papel")) comboGanador = "Papel";
-        else if (combo.includes("Tijeras")) comboGanador = "Piedra";
+        if (combo.includes("Papel")) return "Papel";
+        else if (combo.includes("Tijeras")) return "Piedra";
     } else if (combo.includes("Papel")) {
-        if (combo.includes("Tijeras")) comboGanador = "Tijeras";
-        else if (combo.includes("Piedra")) comboGanador = "Papel";
-    }        
-    return comboGanador;
+        if (combo.includes("Tijeras")) return "Tijeras";
+        else if (combo.includes("Piedra")) return "Papel";
+    }
 };
 
 const esperarEleccionHumano = () => {
@@ -57,17 +56,17 @@ const mostrarAnimacion = (jugadaHumano, jugadaMaquina) => {
 };
 
 const jugar = async () => {
-    while (continuaJugando) {
+    while (obj.continuaJugando) {
         const eleccionHumano = await esperarEleccionHumano();
 
         if (eleccionHumano === "X") {
-            continuaJugando = false;
+            obj.continuaJugando = false;
             break;
         }
 
-        let jugadaHumano = OPCIONES[parseInt(eleccionHumano) - 1];
+        let jugadaHumano = obj.OPCIONES[parseInt(eleccionHumano) - 1];
         const generadorJugadaAuto = () => Math.floor(Math.random() * 3 + 1);
-        let jugadaMaquina = OPCIONES[generadorJugadaAuto() - 1];
+        let jugadaMaquina = obj.OPCIONES[generadorJugadaAuto() - 1];
 
         await mostrarAnimacion(jugadaHumano, jugadaMaquina);
 
@@ -75,22 +74,22 @@ const jugar = async () => {
         if (jugadaHumano !== jugadaMaquina) {
             if (combinacionGanadora([jugadaHumano, jugadaMaquina]) === jugadaHumano) {
                 resultadoTexto += "¡Ganaste!";
-                ganadasHumano++;
+                obj.ganadasHumano++;
             } else {
                 resultadoTexto += "¡Perdiste!";
-                ganadasMaquina++;
+                obj.ganadasMaquina++;
             }
         } else {
             resultadoTexto += "Empate";
-            empate++;
+            obj.empate++;
         }
 
         document.getElementById("resultado").innerText = resultadoTexto;
-        partidasJugadas++;
-        document.getElementById("partidasJugadas").innerText = `Partidas jugadas: ${partidasJugadas}`;
-        document.getElementById("ganadasHumano").innerText = `Partidas ganadas por ti: ${ganadasHumano}`;
-        document.getElementById("ganadasMaquina").innerText = `Partidas ganadas por la máquina: ${ganadasMaquina}`;
-        document.getElementById("empate").innerText = `Empates: ${empate}`;
+        obj.partidasJugadas++;
+        document.getElementById("partidasJugadas").innerText = `Partidas jugadas: ${obj.partidasJugadas}`;
+        document.getElementById("ganadasHumano").innerText = `Partidas ganadas por ti: ${obj.ganadasHumano}`;
+        document.getElementById("ganadasMaquina").innerText = `Partidas ganadas por la máquina: ${obj.ganadasMaquina}`;
+        document.getElementById("empate").innerText = `Empates: ${obj.empate}`;
     }
 
     alert('Fin del juego');
