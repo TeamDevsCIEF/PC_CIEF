@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+        <h1>Catálogo de etiquetas de formulario</h1>
+      <form action="#">
+        <fieldset>
+          <legend>Catálogo de etiquetas de un formulario</legend>
+          <div>
+            <label for="text">type="text":</label>
+            <input type="text" id="text" name="text" required />
+          </div>
+          <div>
+            <label for="number">type="number":</label>
+            <input type="number" id="number" name="number" required />
+          </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+          <div>
+            <label for="number">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
 
-<body>
-    <h1>PIEDRA, PAPEL, TIJERAS</h1>
-    <p>Debes elegir una opción:</p>
-    
-    <ul class="opciones">
-        <li id="piedra"></li>
-        <li id="papel"></li>
-        <li id="tijeras"></li>
-        <li id="finish">❌</li>
-    </ul>
+          <div>
+            <label for="number">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
 
-    <div id="manosContainer" class="hidden">
-        <div id="manoHumano" class=""></div>
-        <div id="manoMaquina" class=""></div>
-    </div>
- 
-    <div>
-        <ul>
-            <li id="partidasJugadas">Partidas jugadas: 0</li>
-            <li id="ganadasHumano">Partidas ganadas por ti: 0</li>
-            <li id="ganadasMaquina">Partidas ganadas por la máquina: 0 </li>
-            <li id="empate">Empatadas: 0</li>
-        </ul>
+          <div class="buttons">
+            <input type="button" value="Enviar" onclick="cambiarColorFondo()">
+            <input type="reset" value="Borrar">
+          </div>
+        </fieldset>
+      </form>
+      <div>
+        <p class="datos">
 
-        <div id="resultado"></div>
-    </div>
-</body>
-<script src="./js/ejercicio1.js"></script>
+        </p>
 
+
+        <h2>Soy un h2</h2>
+
+        <dialog open>
+            <h2>Dialogo</h2>
+            <p>Esto es un dialogo</p>
+            <button onclick="cerrarDialogo()">Cerrar</button>  
+        </dialog>
+      </div>
+    </main>
+  </body>
+  <script src="js/app.js"></script>
 </html>
