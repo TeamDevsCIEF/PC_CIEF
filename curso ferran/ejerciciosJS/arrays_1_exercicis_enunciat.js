@@ -77,6 +77,7 @@ let arrayNombres2 = ["Clint", "Robert", "James", "Anne", "Ingrid", "John", "Patr
 // 5) Crea una funciÃ³n para encontrar el elemento con0 el texto mÃ¡s largo de los dos arrays (no de cada array)
 // y guardarlo en la variable varTextoMasLargo
 // Si hay mÃ¡s de un valor, guardarlos en el array arrayTextosMasLargos.
+// 6) Lo mismo para el texto mÃ¡s corto.
 
 const f_textoMasLargo=(array=[])=>{
     let maxText=""
@@ -86,54 +87,103 @@ const f_textoMasLargo=(array=[])=>{
         let max_text="";
         let min_text;
         array.forEach(z=>{
-            if(z.length > max_text.length){
-                max_text=z; 
-            }
-            if(min_text===undefined){
-                minText=x;
-            }else if(z.length < min_text.length){
-                min_text=z;
-            }
+            if(z.length > max_text.length){max_text=z; }
+
+            if(min_text===undefined){min_text=z; }
+            else if(z.length < min_text.length){min_text=z;}
         })
         return {min_text,max_text}
     }
-    const min=(t1,t2)=> t2.length<t1.length? t2:t1;
+    const min=(t1,t2)=> {
+        t2= t2 ? t2:"";
+        t1= t1 ? t1:t2;
+        
+        return t2.length<t1.length? t2:t1};
     const max=(t1,t2)=> t2.length>t1.length? t2:t1;
 
 
-    array.forEach(x=>{
-        let temp_max_text="";
-        let temp_min_text;
-        x.forEach(z=>{
-            let mn,mx=comparar(z);
-            temp_min_text=min(temp_min_text,mn)  
-            temp_max_text=max(temp_max_text,mx)
-        })
-            
+    array.forEach(x=>{        
+        let {min_text:temp_min_text,max_text:temp_max_text}=comparar(x);        
+        minText=min(minText,temp_min_text)  
+        maxText=max(maxText,temp_max_text)
     })
+    return {minText,maxText};
 
 }
 
-    return maxText;
-}
-console.log(`El texto mas largo es ${f_textoMasLargo([arrayNombres1,arrayNombres2])}`)
+let {minText,maxText} = f_textoMasLargo([arrayNombres1,arrayNombres2])
+console.log(`El texto mas largo es ${maxText} y el mas pequeno es ${minText}`)
 
-// 6) Lo mismo para el texto mÃ¡s corto.
 
 
 // 7) ObtÃ©n un array llamado longitudNombres que tenga como elementos las longitudes de los textos
 // incluidos en cualquiera de los arrays anteriores. Por tanto debes mostrar : [ 8, 5, 4, etc.
-
+let longitudNombres=[...arrayNombres1,...arrayNombres2].map(x=>x.length)
+console.log(`La longitudNombres es [${longitudNombres}]`)
 
 // 8) Crea un array llamado arrayNombresConI que incluya solo los nombres que contengan la letra i
+let arrayNombresConI=[...arrayNombres1,...arrayNombres2].filter(x=>x.toLocaleLowerCase().includes("i"));
 
+console.log(`arrayNombresConI : [${arrayNombresConI}]`)
 
 // Dado este array:
 let arrayMixto = [ "Marie", 24, "Pol", 18, "Judith", 22, "Eva", 28 ]
 
 // 9) Debes obtener otro array llamado arrayBidimensional que sea asÃ­:
 // [ ["Marie", 24 ], ["Pol", 18], ["Judith", 22 ], [ "Eva", 28] ]
-
-
+let arrayBidimensional=arrayMixto.map((x,i)=>i%2!==0? [arrayMixto[i-1],x]:null).filter(x=>Boolean(x))
+console.log("arrayBidimensional",arrayBidimensional)
 // 10) A partir de un array como el que has obtenido en el ejercicio 9,
 // debes resolver los ejercios 1, 2, 3 y 4
+
+// 1) Mostrar por consola la suma de todos los valores
+let sumArrayBidimensional=0;
+arrayBidimensional.forEach(x=>sumArrayBidimensional+=x[1])
+console.log(`La suma de todos los valores es ${sumArrayBidimensional}`)
+// 2) Mostrar por consola el promedio
+console.log("El primedio es ",sumArrayBidimensional/arrayBidimensional.length)
+// 3) Encontrar los valores mÃ¡ximo y mÃ­nimo
+const f_max_array_Bidimensional=(array)=>{ 
+    let max_array;
+    array.forEach(n=>{
+        if(max_array===undefined){
+            max_array=n[1];
+        }else{
+            n[1]>max_array ? max_array=n[1]:null;}})
+    return  max_array;  
+    }
+const f_min_array_Bidimensional=(array)=>{ 
+    let min_array;
+    array.forEach(n=>{
+        if(min_array===undefined){
+            min_array=n[1];
+        }else{
+            n[1]<min_array? min_array=n[1]:null;}})
+    return  min_array;  
+    }
+    
+console.log("El valor maximo es",f_max_array_Bidimensional(arrayBidimensional),"y el minimo es",f_min_array_Bidimensional(arrayBidimensional))
+// 4) Sumar los valores con Ã­ndice par y restar los impares
+
+
+const f_par_impar_Bidimensional= (array=[]) => {   
+    let sum_par=0;
+    let sum_impar=0;
+    array.forEach((n,i)=>{
+
+
+        if(i%2===0){sum_par+=n[1]}
+        else{sum_impar+=n[1]}
+    })
+    let resultado= sum_par-sum_impar;
+    resultado=resultado<0?resultado*-1:resultado;
+
+    return {sum_par,sum_impar,resultado}
+}
+const parImparArray1_Bidimensional=f_par_impar_Bidimensional(arrayBidimensional)
+
+console.log(`La suma del array1 ${arrayBidimensional} es ${parImparArray1_Bidimensional.resultado}:\n sumas de los pares es=${parImparArray1_Bidimensional.sum_par}\nsumas de los impares es=${parImparArray1_Bidimensional.sum_impar}`)
+
+
+//Crear array 
+
