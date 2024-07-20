@@ -1,7 +1,9 @@
 let a=["Jose","juan","pedro"]
-for(i in a){    
 
-    document.querySelector("body").innerHTML+=`<h2>Nombre: <h4>${a[i]}</h4></h2>`
-}
+let b=a.map(x=>{
+    let m="anton";
+    let n="patron";
+    return {m,n}
+})
 
-document.querySelector("body").className="verde"
+console.log(b)
