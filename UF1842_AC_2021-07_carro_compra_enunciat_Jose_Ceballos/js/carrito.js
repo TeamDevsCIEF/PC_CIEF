@@ -44,7 +44,7 @@ const create_cartItems=(item)=>{
             if (romperforEach) return; // Salir del bucle forEach si la condición ya se cumplió
 
             if(item.id===id){
-                newItem[id].template=templateItemCart(item);
+                newItem[id].template=templateItemCart(item,1,myCart);
                 romperforEach=true;
             }
             });
@@ -61,7 +61,7 @@ const update_cartItems=(item)=>{
         productes.forEach(item => {
             if (romperforEach) return; // Salir del bucle forEach si la condición ya se cumplió
             if(item.id===i){
-                newItem[i].template = templateItemCart(item,newItem[i].cantidad);
+                newItem[i].template = templateItemCart(item,newItem[i].cantidad,myCart);
                 romperforEach=true;
             }
             });

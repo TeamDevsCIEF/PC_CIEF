@@ -39,7 +39,8 @@ const templateItemCart=(obj = {"id":"","img":{"src":"","alt":""},"producto":"","
     let pDelete = Object.assign(document.createElement('p'), { className:"pDelete"});
     pDelete.innerHTML = "<i class='fa-solid fa-trash'></i>";
     pDelete.addEventListener("click", (event) => {
-        deleteItem_cartItems(obj.id);
+        //deleteItem_cartItems(obj.id);
+        myCart.deleteItem(obj.id);
     });
     
     carrito_item.appendChild(pProduct);
@@ -59,9 +60,12 @@ const templateItemCart=(obj = {"id":"","img":{"src":"","alt":""},"producto":"","
         }
     });
     count_add.addEventListener("click", () => {
+
         let current = parseInt(count_input.value);
+        console.log("count_add.addEventListener current",count_input.value)
         count_input.value = current + 1;
         reCalcTotal();
+        console.log("myCart",myCart)
         myCart.cartUpdate();
     });
     

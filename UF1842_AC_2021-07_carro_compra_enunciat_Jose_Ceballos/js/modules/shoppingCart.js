@@ -1,35 +1,70 @@
-import {productes} from '../api.js';
+import {productes,cartItems} from '../api.js';
 import {templateItemCart} from '../template/templateItemCart.js';
-
+import {EventEmitter,eventEmitter} from "../eventos/eventEmitter.js" ;
 export default class ShoppingCart {
     constructor() {
-        this.cartItems = {};
-        this.cartProxy = new Proxy(this.cartItems, {
+//        const eventEmitter = new EventEmitter();
+
+        const a=(t)=>{console.log(t)}
+        const b=(t)=>{console.log(`Funcion B dice:`,t)}
+        eventEmitter.on('test', a)
+
+
+        //this.cartItems=cartItems;
+        this.cartProxy = new Proxy(cartItems, {
             set: (cartItems, id, newValue) => {
-                //cartItems={...cartItems,...newValue};
-                this.cartItems={...this.cartItems,...newValue};
-                //cartItems[id] = newValue;
-                this.updateCartPopup();
-                this.cartUpdate();
-                return true;
+                if (typeof newValue === 'object' && newValue !== null) {
+                    cartItems[id] = newValue;
+                    console.log(`Elemento con id ${id} actualizado/creado`, cartItems);
+                    this.updateCartPopup();
+                    this.cartUpdate();
+                    eventEmitter.emit("cartItemsUpdate","")
+                    return true;
+                } else {
+                    console.error(`El valor nuevo para el id ${id} no es válido`, newValue);
+                    return false;
+                }
             },
             deleteProperty: (cartItems, id) => {
-                delete cartItems[id];
-                this.updateCartPopup();
-                this.cartUpdate();
-                return true;
+                if (id in cartItems) {
+                    delete cartItems[id];
+                    console.log(`Elemento con id ${id} eliminado`, cartItems);
+                    this.updateCartPopup();
+                    this.cartUpdate();
+                    return true;
+                } else {
+                    console.error(`El id ${id} no existe en cartItems`);
+                    return false;
+                }
+            },
+            get: (cartItems, id) => {
+                if (id === 'getAll') {
+                    return cartItems;
+                } else if (id in cartItems) {
+                    console.log(`Elemento con id ${id} consultado`, cartItems[id]);
+                    return cartItems[id];
+                } else {
+                    console.error(`El id ${id} no existe en cartItems`);
+                    return undefined;
+                }
             }
         });
+        
+        // Enlazar explícitamente el método deleteItem a la instancia de la clase
+        //this.deleteItem = this.deleteItem.bind(this);
     }
+
+
     
-    addItem( item) {
+    addItem=( item) =>{
         let id=Object.keys(item)[0]
-        let newItem = { ...item };
+        let newItem = { ...item[id],cantidad:1 };
+        console.log("newItem",newItem)
         let romperForEach = false;
         productes.forEach(prod => {
             if (romperForEach) return;
             if (prod.id === id) {
-                newItem[id].template = templateItemCart(prod,1,{cartUpdate:this.cartUpdate});
+                newItem.template = templateItemCart(prod,1,{cartUpdate:this.cartUpdate,deleteItem:this.deleteItem});
                 romperForEach = true;
             }
         });
@@ -37,15 +72,16 @@ export default class ShoppingCart {
         this.cartUpdate();
     }
 
-    updateItem( item) {
+    updateItem=( item)=> {
         let id=Object.keys(item)[0]
 
-        let newItem = { ...item };
+        let newItem = { ...item[id] };
+        console.log("update newItem",newItem)
         let romperForEach = false;
         productes.forEach(prod => {
             if (romperForEach) return;
             if (prod.id === id) {
-                newItem[id].template = templateItemCart(prod, newItem[id].cantidad,{cartUpdate:this.cartUpdate});
+                newItem.template = templateItemCart(prod, newItem.cantidad,{cartUpdate:this.cartUpdate,deleteItem:this.deleteItem});
                 romperForEach = true;
             }
         });
@@ -53,22 +89,28 @@ export default class ShoppingCart {
         this.cartUpdate();
     }
 
-    deleteItem(id) {
+    deleteItem=(id)=> {
         let carrito = document.querySelector("#carrito");
-        carrito.removeChild(this.cartItems[id].template);
-        delete this.cartProxy[id];
-        this.cartUpdate();
+
+        if (this.cartProxy[id]) {
+            carrito.removeChild(this.cartProxy[id].template);
+            delete this.cartProxy[id]; // Utiliza el proxy para eliminar el elemento
+            this.cartUpdate();
+        } else {
+            console.error(`El id ${id} no existe en cartItems`);
+        }
     }
 
-    cartUpdate() {
+
+    cartUpdate=()=> {
         let carrito = document.querySelector("#carrito");
         let firstChild = carrito.firstElementChild;
         let preuFinal = document.querySelector("#preuFinal");
         if (firstChild) {
             carrito.replaceChildren(firstChild);
         }
-        for (let id in this.cartItems) {
-            carrito.appendChild(this.cartItems[id].template);
+        for (let id in cartItems) {
+            carrito.appendChild(cartItems[id].template);
         }
 
         let carritoItem = carrito.querySelectorAll(".carrito_item_total");
@@ -79,34 +121,16 @@ export default class ShoppingCart {
         preuFinal.textContent = `${total.toFixed(2)} €`;
     }
 
-    updateCartPopup() {
+    updateCartPopup=()=> {
         const cartPopup = document.getElementById('carrito');
-        //if (Object.keys(this.cartProxy).length > 0) {
-        if (Object.keys(this.cartItems).length > 0) {
+        console.log(Object.keys(this.cartProxy).length)
+        if (Object.keys(this.cartProxy).length > 0) {
+        //if (Object.keys(this.cartItems).length > 0) {
             cartPopup.style.display = 'block';
         } else {
             cartPopup.style.display = 'none';
         }
     }
 
-    /*templateItemCart(product, cantidad = 1) {
-        // Aquí va tu lógica para crear el template del producto
-        // Esto es solo un ejemplo de cómo podría verse
-        let itemElement = document.createElement('div');
-        itemElement.classList.add('carrito_item_total');
-        itemElement.dataset.total = (product.price * cantidad).toFixed(2);
-        itemElement.innerHTML = `
-            <p>${product.name}</p>
-            <p>${product.price} €/kg</p>
-            <p class="carrito_item_count">
-                <span class="count_reduce">-</span>
-                <input type="number" class="count_input" value="${cantidad}">
-                <span class="count_add">+</span>
-                <span class="measurement">kg</span>
-            </p>
-            <p data-id="total_${product.id}">${(product.price * cantidad).toFixed(2)} €</p>
-            <p><i class="fa-solid fa-trash"></i></p>
-        `;
-        return itemElement;
-    }*/
+ 
 }

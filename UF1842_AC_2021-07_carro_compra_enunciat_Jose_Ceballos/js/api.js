@@ -11,7 +11,8 @@ const productes=[
     {"id":"10","img":{"src":"img/platans.png","alt":"Plátanos"},"producto":"Plátanos","price":"3.20","currency":"€","measurement":"kg"},
     {"id":"11","img":{"src":"img/pera.jpg","alt":"Pera"},"producto":"Pera","price":"1.80","currency":"€","measurement":"kg"},
     {"id":"12","img":{"src":"img/manzana_golden.jpg","alt":"Manzana Golden"},"producto":"Manzana Golden","price":"3.50","currency":"€","measurement":"kg"}
-]
+];
 
+const cartItems = {};
 
-export {productes};
+export {productes,cartItems};
