@@ -1,6 +1,7 @@
 import ShoppingCart from './modules/shoppingCart.js';
-import { productes } from './api.js';
+import { productes_rend } from './api.js';
 import { template } from './template/template.js';
+import {eventEmitter} from '../js/eventos/eventEmitter.js';
 
 // Profesor, para más comodidad he creado una lista de productos con los datos que había en el HTML
 // con el fin de poder tener más detalle de los productos como la moneda, el precio, etc. ver {productes} que contiene todos los datos de html.
@@ -55,4 +56,20 @@ myCart.updateCartPopup();
 let productesDom = document.querySelector(".productes");
 
 // Añadir cada producto al DOM utilizando la plantilla definida y pasándole el carrito
-productes.forEach(producte => productesDom.appendChild(template(producte, myCart)));
+let rederizedProducts={};// este objeto es para mantener el historico de productos renderizados y evitar perder la referencias al replaceChildren
+const renderizar = () => {
+    productesDom.replaceChildren();
+    productes_rend.forEach(producte => 
+        {
+            if(producte.id in rederizedProducts) {
+                productesDom.appendChild(rederizedProducts[producte.id]);
+            }
+            else {
+                rederizedProducts[producte.id] = template(producte, myCart);
+                productesDom.appendChild(rederizedProducts[producte.id]);
+            }
+                    }
+    );
+};
+eventEmitter.on(`render`, renderizar); // Añadimos un listener para renderizar.
+eventEmitter.emit("filterProduct", ""); // Emitimos un evento para filtrar productos.

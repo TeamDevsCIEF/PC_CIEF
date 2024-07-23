@@ -1,5 +1,6 @@
+import {eventEmitter} from './eventos/eventEmitter.js';
 // Lista de productos disponibles
-const productes=[
+let productes=[
     {
         "id":"1",
         "img":{"src":"img/aranja.png",// Ruta de la imagen del producto
@@ -23,8 +24,27 @@ const productes=[
     {"id":"12","img":{"src":"img/manzana_golden.jpg","alt":"Manzana Golden"},"producto":"Manzana Golden","price":"3.50","currency":"€","measurement":"kg"}
 ];
 
+// Lista de productos a renderizar
+let productes_rend=[];
+
+const filterProducto = (word)=>{ 
+    console.log("filterProducto ejecutado...",word);
+    if(word){
+        productes_rend=productes.filter(product=>product.producto.toLowerCase().includes(word.toLowerCase()));
+        console.log("render",productes_rend );
+    }
+        else{
+            productes_rend= [...productes];
+        }
+
+    eventEmitter.emit("render", ""); // Emitimos un evento para renderizar los productos filtrados.
+
+    console.log("productes_rend",productes_rend);
+};
+
+eventEmitter.on(`filterProduct`, filterProducto); // Añadimos un listener para renderizar.
 // Objeto para almacenar los elementos en el carrito, inicialmente vacío
 const cartItems = {};
 
 // Exportar los productos y los elementos del carrito para que puedan ser utilizados en otros archivos
-export {productes,cartItems};
+export {productes,cartItems,productes_rend};
