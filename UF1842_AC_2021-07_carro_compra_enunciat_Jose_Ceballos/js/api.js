@@ -4,10 +4,12 @@ const productes=[
         "id":"1",
         "img":{"src":"img/aranja.png",// Ruta de la imagen del producto
             "alt":"Aranja"},// Texto alternativo de la imagen del producto
-            "producto":"Pomelo", // Nombre del producto
-            "price":"2.50", // Precio del producto
-            "currency":"€",  // Moneda del precio
-            "measurement":"kg"}, // Unidad de medida del producto
+        "producto":"Pomelo", // Nombre del producto
+        "price":"2.50", // Precio del producto
+        "currency":"€",  // Moneda del precio
+        "measurement":"kg"// Unidad de medida del producto
+    }, 
+
     {"id":"2","img":{"src":"img/kiwi.png","alt":"Kiwi"},"producto":"Kiwi","price":"4.20","currency":"€","measurement":"kg"},
     {"id":"3","img":{"src":"img/llimones.png","alt":"Llimones"},"producto":"Limón","price":"1.20","currency":"€","measurement":"kg"},
     {"id":"4","img":{"src":"img/pinya.png","alt":"Pinya"},"producto":"Piña","price":"2.80","currency":"€","measurement":"unit"},

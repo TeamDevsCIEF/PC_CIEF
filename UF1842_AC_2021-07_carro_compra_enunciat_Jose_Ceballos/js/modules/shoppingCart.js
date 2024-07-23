@@ -1,6 +1,6 @@
 // Importar productos, artículos del carrito y plantillas desde otros archivos.
 import {productes, cartItems} from '../api.js';
-import {templateItemCart} from '../template/templateItemCart.js';
+import {templateItemCart,emptyElementTemplate} from '../template/templateItemCart.js';
 import {eventEmitter} from "../eventos/eventEmitter.js";
 
 export default class ShoppingCart {
@@ -8,6 +8,7 @@ export default class ShoppingCart {
         // Suscribir las funciones de actualización al evento 'updateItem'.
         eventEmitter.on('updateItem', this.updateItem);
         eventEmitter.on('updateInputOfTemplate', this.updateItem);
+        //eventEmitter.on('updateInputOfTemplate', this.updateCartPopup);
 
         // Crear un Proxy para cartItems para manejar cambios en el carrito de forma reactiva.
         this.cartProxy = new Proxy(cartItems, {
@@ -88,7 +89,7 @@ export default class ShoppingCart {
     // Método para eliminar un elemento del carrito.
     deleteItem = (id) => {
         let carrito = document.querySelector("#carrito");
-
+        console.log("Entro en borrar ",id)
         if (this.cartProxy[id]) {
             carrito.removeChild(this.cartProxy[id].template);
             delete this.cartProxy[id]; // Utiliza el proxy para eliminar el elemento.
@@ -123,11 +124,15 @@ export default class ShoppingCart {
 
     // Método para mostrar u ocultar el popup del carrito según si hay elementos en el carrito.
     updateCartPopup = () => {
-        const cartPopup = document.getElementById('carrito');
-        if (Object.keys(this.cartProxy).length > 0) {
-            cartPopup.style.display = 'block';
-        } else {
-            cartPopup.style.display = 'none';
+        console.log("updateCartPopup called")
+        const carrito = document.getElementById('carrito');
+        let firstChild = carrito.firstElementChild;
+        
+        if (!(Object.keys(this.cartProxy).length > 0)) {
+            
+            carrito.replaceChildren(firstChild);
+            carrito.appendChild(emptyElementTemplate())
+            
         }
         
     }

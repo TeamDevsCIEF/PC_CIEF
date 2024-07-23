@@ -33,7 +33,7 @@ const templateItemCart = (obj = {"id": "", "img": {"src": "", "alt": ""}, "produ
     pCarrito_item_count.appendChild(count_reduce);
     pCarrito_item_count.appendChild(count_input);
     pCarrito_item_count.appendChild(count_add);
-    pCarrito_item_count.appendChild(measurement);
+    //pCarrito_item_count.appendChild(measurement); //he decidido no mostrar esta medida en el el resultado final, descomentar en caso de necesitar.
 
     // Crear y configurar el elemento para mostrar el total del producto.
     let total = Object.assign(document.createElement('p'), { id: `total_${obj.id}`, className: "carrito_item_total" });
@@ -51,6 +51,7 @@ const templateItemCart = (obj = {"id": "", "img": {"src": "", "alt": ""}, "produ
     pDelete.innerHTML = "<i class='fa-solid fa-trash'></i>"; // icono de papelera
     pDelete.addEventListener("click", (event) => {
         myCart.deleteItem(obj.id);
+        eventEmitter.emit(`showAddToCart_${obj.id}`,"")// emitir evento para mostrar el boton AddToCart ya que se borro el elemento del carrito
     });
 
     // Añadir todos los elementos al contenedor principal del producto.
@@ -78,4 +79,19 @@ const templateItemCart = (obj = {"id": "", "img": {"src": "", "alt": ""}, "produ
     return carrito_item;
 };
 
-export { templateItemCart };
+const emptyElementTemplate=()=>{
+    const emptyElement=document.createElement("li");
+    emptyElement.className="carrito_item_li carrito_item"
+
+    emptyElement.innerHTML=`        
+        <p></p>
+        <p></p>
+        <p style="height: 3.5vh;"></p>
+        <p></p>
+        <p></p>    
+    `;
+    return emptyElement;
+
+}
+
+export { templateItemCart,emptyElementTemplate };

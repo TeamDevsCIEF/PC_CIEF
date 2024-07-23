@@ -15,16 +15,18 @@ import { template } from './template/template.js';
  * 2. Aumentar y disminuir la cantidad de productos del carrito
  *    - Actualizar las cantidades en el listado de productos y en el carrito simultáneamente.
  *    - No permitir cantidades de productos negativas.
+ *        - Los valores negativos ingresados son convertidos a cero.
  *    - Distinguir entre productos con kg o unidad:
  *        - Los productos que se venden por kg su cantidad puede ser fraccionada.
  *        - Los productos que se venden por unidad solo pueden aumentar y disminuir en una unidad.
- * 
+ *    - Aumento de cantidades escritas directamente en el input para mayor agilidad.
+ *        - Los productos que se venden por unidad, si se ingresa un valor de unidad fraccionado, se redondea al proximo entero.
  * 3. Poder eliminar los productos del carrito
- *    - Al eliminar los productos del carrito se restablece el botón de agregar al carrito.
+ *    - Al eliminar los productos del carrito se restablece el botón de "Add to cart".
  * 
  * 4. Calcular el total de venta por producto individual y sumar todos los totales de los demás productos como total de compra.
  * 
- * 5. Ocultar el carrito mientras no existan productos en él.
+ * 5. Renderizar el carrito vacio mientras no existan productos en él o al eliminar todos los productos.
  * 
  * 6. No permitir el ingreso de caracteres diferentes a numéricos en los campos de cantidad.
  * 

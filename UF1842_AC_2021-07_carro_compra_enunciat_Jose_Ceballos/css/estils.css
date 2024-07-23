@@ -153,7 +153,7 @@ body {
                 margin: 0;
                 padding: 5px;
 
-        }
+            }
 
 
         }
@@ -191,12 +191,12 @@ body {
                 width: 100%;
                 position: relative;
                 .count_reduce{
-                    top: 40%;
+                    top: 45%;
                     left: 20%;
                     transform: translate(-50%, -50%);
                 }
                 .count_add{
-                    top: 40%;
+                    top: 45%;
                     right: 5%;
                     transform: translate(-50%, -50%);
                 }
@@ -221,13 +221,13 @@ body {
                         /*transform: scale(1.5);*/
                     }
                 }
-                input[type="number"]{
+                .count_input{
                     width: 100%;
 
-                    padding: 0.1vw 0 0.7vw 00;
+                    padding: 0.15vw 0;
                     text-align: center;
                     border-radius: 25px;
-                    border: 0.01vw solid black;
+                    border: 0.01vw solid var(--secundary-color);
                     font-size: .9vw;
                     
                     &::-webkit-inner-spin-button,
@@ -239,16 +239,36 @@ body {
             &:last-child{
                 border-radius: 0 0 30px 30px;
             }
+
+            .pDelete{
+                cursor: pointer;
+            }
         }
 
         
         
     }
+    #totalCompra {
+        display: fixed;
+        position: sticky;
+        justify-items: right;
+        bottom: 0;
+        margin-bottom: 2rem;
+        text-align: right;
 
-    #total {
-        font-weight: bold;
-        font-size: 1.2rem;
+        #total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            
+    
+            #preuFinal{
+                font-size: 2vw;
+                padding: 1vw;
+            }
+        }
     }
+
+    
 
     #borrar {
         display: inline;
@@ -258,14 +278,7 @@ body {
         font-size: 1.5rem;
     }
 
-    #totalCompra {
-        display: fixed;
-        position: sticky;
-        justify-items: right;
-        bottom: 0;
-        margin-bottom: 2rem;
-        text-align: right;
-    }
+    
 }
 
 
