@@ -19,7 +19,7 @@ const templateItemCart = (obj = {"id": "", "img": {"src": "", "alt": ""}, "produ
     let count_reduce = Object.assign(document.createElement('span'), { className: "count_reduce" });
 
     count_reduce.textContent = "-"; // boton de reducir la cantidad del producto
-    let count_input = Object.assign(document.createElement('input'), { type: "number", className: "count_input", value: `${cantidad}` });
+    let count_input = Object.assign(document.createElement('input'), { type: "number", className: "count_input",step: "0.1", value: `${cantidad}` });
     let count_add = Object.assign(document.createElement('span'), { className: "count_add" });
 
     count_add.textContent = "+"; // boton para aumentar la cantidad del producto

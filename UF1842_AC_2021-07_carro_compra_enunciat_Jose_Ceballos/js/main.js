@@ -23,7 +23,7 @@ import {eventEmitter} from '../js/eventos/eventEmitter.js';
  *    - Aumento de cantidades escritas directamente en el input para mayor agilidad.
  *        - Los productos que se venden por unidad, si se ingresa un valor de unidad fraccionado, se redondea al proximo entero.
  * 3. Poder eliminar los productos del carrito
- *    - Al eliminar los productos del carrito se restablece el botón de "Add to cart".
+ *    - Al eliminar los productos del carrito se restablece el botón de "Add to cart" y todos sus valores.
  * 
  * 4. Calcular el total de venta por producto individual y sumar todos los totales de los demás productos como total de compra.
  * 
@@ -35,11 +35,15 @@ import {eventEmitter} from '../js/eventos/eventEmitter.js';
  * 
  * 8. Emitir eventos personalizados (usando eventEmitter) para notificar otros componentes sobre los cambios en el carrito.
  * 
- * 9. Validar que el input de cantidad no acepte valores menores que 0 directamente.
+ * 9. Validar que el input de cantidad no acepte valores menores que 0 directamente.    
+ *    - Si se ingresa un valor negativo, el input se restablece a 0.
  * 
- * 10. Manejar el caso en que el usuario intente ingresar caracteres especiales o texto no numérico en los campos de cantidad.
+ * 10. Manejar el caso en que el usuario intente ingresar caracteres especiales o texto en los campos de cantidad.
  * 
  * 11. Asegurar que las cantidades fraccionadas (para productos por kg) sean manejadas correctamente en todas las funciones.
+ * 
+ * 12. Agregar un SearchBox con el fin de filtrar los productos.
+ *    - Placeholder dinámico que mostrará sugerencias de los productos disponible.
  */
 
 

@@ -55,19 +55,17 @@ class SearchboxForm extends HTMLElement {
 
         // Agrega un evento para cuando el campo de entrada recibe el foco
         input.addEventListener('focus', () => {
-            console.log('Input enfocado'); // Mensaje en la consola
             clearInterval(this.intervalId); // Detiene la actualización del texto
         });
 
         // Agrega un evento para cuando el campo de entrada pierde el foco
         input.addEventListener('focusout', (event) => {
-            console.log('Input desenfocado'); // Mensaje en la consola
             const relatedTarget = event.relatedTarget; // Elemento que recibe el foco
             const historyElement = this.shadowRoot.querySelector('#history-element'); // Elemento de historial de búsqueda
             // Si el foco no está en el formulario de búsqueda ni en el historial, reinicia la actualización del texto
             if (!searchboxForm.contains(relatedTarget) && (!historyElement || !historyElement.contains(relatedTarget))) {
                 this.updateLabel(); // Actualiza el texto
-                this.intervalId = setInterval(() => this.updateLabel(), 5000); // Reinicia el intervalo para actualizar el texto cada 5 segundos
+                this.intervalId = setInterval(() => this.updateLabel(), x); // Reinicia el intervalo para actualizar el texto cada 5 segundos
             }
         });
 

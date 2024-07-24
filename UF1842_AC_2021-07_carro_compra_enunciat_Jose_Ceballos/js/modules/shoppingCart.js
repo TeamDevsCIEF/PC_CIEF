@@ -1,6 +1,7 @@
 // Importar productos, artículos del carrito y plantillas desde otros archivos.
 import {productes, cartItems} from '../api.js';
 import {templateItemCart,emptyElementTemplate} from '../template/templateItemCart.js';
+import {cartTemplate,cartEmptyTemplate,totalCompra} from "../template/cartTemplate.js";
 import {eventEmitter} from "../eventos/eventEmitter.js";
 
 export default class ShoppingCart {
@@ -29,7 +30,7 @@ export default class ShoppingCart {
             deleteProperty: (cartItems, id) => {
                 if (id in cartItems) {
                     delete cartItems[id];
-                    console.log(`Elemento con id ${id} eliminado`, cartItems);
+                    //console.log(`Elemento con id ${id} eliminado`, cartItems);
                     this.updateCartPopup();
                     this.cartUpdate();
                     return true;
@@ -43,7 +44,7 @@ export default class ShoppingCart {
                 if (id === 'getAll') {
                     return cartItems;
                 } else if (id in cartItems) {
-                    console.log(`Elemento con id ${id} consultado`, cartItems[id]);
+                    //console.log(`Elemento con id ${id} consultado`, cartItems[id]);
                     return cartItems[id];
                 } else {
                     console.error(`El id ${id} no existe en cartItems`);
@@ -51,7 +52,15 @@ export default class ShoppingCart {
                 }
             }
         });
+
+        this.built();
     }
+
+    built =()=>{
+        let cartSection=document.querySelector("#cartSection");
+        if(!cartSection.querySelector("carrito")){
+            cartSection.append(totalCompra(),cartEmptyTemplate());
+    }}
 
     // Método para agregar un nuevo elemento al carrito.
     addItem = (item) => {
@@ -89,7 +98,6 @@ export default class ShoppingCart {
     // Método para eliminar un elemento del carrito.
     deleteItem = (id) => {
         let carrito = document.querySelector("#carrito");
-        console.log("Entro en borrar ",id)
         if (this.cartProxy[id]) {
             carrito.removeChild(this.cartProxy[id].template);
             delete this.cartProxy[id]; // Utiliza el proxy para eliminar el elemento.
@@ -120,19 +128,17 @@ export default class ShoppingCart {
             total += parseFloat(item.dataset.total);
         }
         preuFinal.textContent = `${total.toFixed(2)} €`;
+
+        this.updateCartPopup();
     }
 
-    // Método para mostrar u ocultar el popup del carrito según si hay elementos en el carrito.
+    // Método para mostrar el carrito sin elementos.
     updateCartPopup = () => {
-        console.log("updateCartPopup called")
-        const carrito = document.getElementById('carrito');
-        let firstChild = carrito.firstElementChild;
-        
         if (!(Object.keys(this.cartProxy).length > 0)) {
-            
-            carrito.replaceChildren(firstChild);
-            carrito.appendChild(emptyElementTemplate())
-            
+            document.querySelector("#carrito").remove();
+            document.querySelector("#totalCompra").remove();
+
+            this.built();
         }
         
     }

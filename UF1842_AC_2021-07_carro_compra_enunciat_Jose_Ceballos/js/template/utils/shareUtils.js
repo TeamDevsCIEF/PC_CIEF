@@ -9,7 +9,7 @@ const decrement_Input = ({ count_input, obj, item }) => {
                 current = parseInt(current) - 1; // Disminuimos la cantidad en una unidad.
                 break;
             case "kg":
-                current = (parseFloat(current) - parseFloat(0.01)).toFixed(2); // Disminuimos la cantidad en 0.01 kg.
+                current = (parseFloat(current) - parseFloat(0.1)).toFixed(2); // Disminuimos la cantidad en 0.01 kg.
                 break;
             default:
                 console.log("Error en la medida"); // Mostramos un error si la medida no es reconocida.
@@ -26,7 +26,7 @@ const increment_Input = ({count_input,obj,item}) => {
             current = parseInt(count_input.value) + 1; // Aumentamos la cantidad en una unidad.
             break;
         case "kg":
-            current = (parseFloat(count_input.value) + parseFloat(0.01)).toFixed(2); // Aumentamos la cantidad en 0.01 kg.
+            current = (parseFloat(count_input.value) + parseFloat(0.1)).toFixed(2); // Aumentamos la cantidad en 0.01 kg.
             break;
         default:
             console.log("Error en la medida"); // Mostramos un error si la medida no es reconocida.

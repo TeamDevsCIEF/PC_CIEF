@@ -8,8 +8,7 @@ class EventEmitter {
     // Suscribir una función a un evento específico. 
     // .on("nombre del evento", "Función a ejecutar cuando el evento ocurra")
     on(event, listener) {
-        // Si no hay funciones asociadas a este evento, crear un array vacío.
-        
+        // Si no hay funciones asociadas a este evento, crear un array vacío.        
         if (!this.events[event]) {
             this.events[event] = [];
         }
@@ -29,7 +28,6 @@ class EventEmitter {
     // Emitir (disparar) un evento específico con datos opcionales.
     // .emit("nombre del evento", "Datos que se pasan a las funciones suscritas")
     emit(event, data) {
-        console.log("event,data",event,data);
         // Si no hay funciones asociadas a este evento, salir.
         if (!this.events[event]) return;
         // Ejecutar cada función asociada al evento, pasando los datos.

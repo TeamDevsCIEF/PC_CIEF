@@ -63,6 +63,7 @@ const template = (obj = {"id":"","img":{"src":"","alt":""},"producto":"","price"
     eventEmitter.on(`showAddToCart_${obj.id}`, showAddToCart); // Añadimos un listener para mostrar el boton addToCart.
 
     count_input.addEventListener("blur", (event) => increment_InputBlur({count_input,obj,item})); // Añadimos un evento para actualizar la cantidad cuando se pierde el foco del campo de entrada.
+    count_input.addEventListener("keypress",(key)=> key.key==="Enter" ? increment_InputBlur({count_input,obj,item}):null)
     
     return div; // Devolvemos el contenedor principal que contiene todos los elementos del producto.
 };

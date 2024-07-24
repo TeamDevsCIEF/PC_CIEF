@@ -28,18 +28,14 @@ let productes=[
 let productes_rend=[];
 
 const filterProducto = (word)=>{ 
-    console.log("filterProducto ejecutado...",word);
     if(word){
         productes_rend=productes.filter(product=>product.producto.toLowerCase().includes(word.toLowerCase()));
-        console.log("render",productes_rend );
     }
         else{
             productes_rend= [...productes];
         }
 
     eventEmitter.emit("render", ""); // Emitimos un evento para renderizar los productos filtrados.
-
-    console.log("productes_rend",productes_rend);
 };
 
 eventEmitter.on(`filterProduct`, filterProducto); // Añadimos un listener para renderizar.
