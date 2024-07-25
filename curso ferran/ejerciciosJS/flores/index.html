@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flors</title>
+    <link rel="stylesheet" href="./css/flors.css" />
+    <link rel="shortcut icon" href="./img/flor.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <h1>Ejercicios DOM - Objetos - Arrays</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Ejercicio 1</h2>
+        <p>Lista de elementos</p>
+        <pre>
+        Hay que mostrar los datos de las flores
+        como lista, según este modelo:
+        Flor: rosa, de color rojo, florece en primavera y tenemos stock
+        Flor: hortensia, de color blanco, florece en verano y no tenemos stock
+    </pre
+        >
+        <h3>Nuestras flores</h3>
+        <div id="ejercicio1"></div>
+      </section>
+
+      <section>
+        <h2>Ejercicio 2</h2>
+        <pre>
+    Listar las flores de verano de color blanco
+    como lista, según este modelo:
+    Flor: rosa, de color rojo, florece en verano y tenemos stock
+    Flor: hortensia, de color blanco, florece en verano y no tenemos stock    
+    </pre
+        >
+        <h3>Flores blancas de verano</h3>
+        <div id="ejercicio2"></div>
+      </section>
+
+      <section>
+        <h2>Ejercicio 3</h2>
+        <h3>Selección por características</h3>
+        <pre>
+        Crea un formulario con selectores para 
+        * el color
+        * la estación de floración 
+        * el stock
+        Cuando cambie el selector se activa el filtrado
+    </pre
+        >
+        <form action="#" id="form_selection">
+          <fieldset>
+            <legend>Elije las opciones correctas</legend>
+            <div>
+              <label
+                ><input type="radio" name="color" value="blanco" checked />
+                Blanco</label
+              >
+              <label
+                ><input type="radio" name="color" value="rojo" /> Rojo</label
+              >
+              <label
+                ><input type="radio" name="color" value="azul" /> Azul</label
+              >
+            </div>
+            <div>
+              <label
+                ><input
+                  type="radio"
+                  name="floracion"
+                  value="primavera"
+                  checked
+                />
+                Primavera</label
+              >
+              <label
+                ><input type="radio" name="floracion" value="verano" />
+                Verano</label
+              >
+              <label
+                ><input type="radio" name="floracion" value="otoño" />
+                Otoño</label
+              >
+              <label
+                ><input type="radio" name="floracion" value="invierno" />
+                Invierno</label
+              >
+            </div>
+            <div>
+              <label
+                ><input type="radio" name="stock" value="true" checked /> Con
+                stock</label
+              >
+              <label
+                ><input type="radio" name="stock" value="false" /> Sin
+                stock</label
+              > 
+            </div>
+          </fieldset>
+        </form>
+        <div id="ejercicio3"></div>
+      </section>
+
+      <section>
+        <h2>Ejercicio 4</h2>
+        <h3>Seleccionar flor por nombre</h3>
+        <pre>
+        Obtener la flor que corresponda a la indicación del usuario.
+    </pre
+        >
+    <form action="#" id="select_name">
+        <label for="name">Selecciona el nombre de la flor:</label>
+        <input type="text" id="name" required />
+        <input type="submit" value="Buscar la flor" />
+  
+    </form>
+        <div id="ejercicio4"></div>
+      </section>
+
+      <section>
+        <h2>Ejercicio 5</h2>
+        <h3>Añadir flor</h3>
+        <pre>
+        Añadir flor con todas sus características
+        Por ejemplo:
+        Flor: cyclamen, color:rosa, floracion: invierno, stock:true
+        Tiene que actualizarse automáticamente la lista del ejercicio 1
+    </pre
+        >
+        <form action="#" id="add_flower">
+            <div><label >Nombre : <input type="text" required></label></div>
+            <div><label >Color : <input type="text" required></label></div>
+            <div><label >Floración : <input type="text" required></label></div>
+            <div><label
+                ><input type="radio" name="stock2" value="true" checked /> Con
+                stock</label
+              >
+              <label
+                ><input type="radio" name="stock2" value="false" /> Sin
+                stock</label
+              ></div>
+              <div>
+                <input type="submit" value="Añadir flor">
+              </div>
+            
+        </form>
+      </section>
+    </main>
+    <script src="js/flors.js"></script>
+  </body>
+</html>
