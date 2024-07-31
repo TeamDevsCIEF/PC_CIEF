@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una página web accesible según las directrices de accesibilidad de la UE">
+    <meta name="keywords" content="accesibilidad, UE, web semántica, buenas prácticas">
+    <meta name="author" content="Tu Nombre">
+    <!--meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"-->
+    <title>Página Accesible</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/305c6564ee.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#elHotel">El Hotel</a></li>
+                <li><a href="#recomendaciones">Recomendaciones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <section id="inicio" class="container show-inicio">
+            <h1>Hotel Rural Mas Dels Avets</h1>
+            <picture>
+                <source srcset="./img/hermosa-vista-montanas-rocosas-arboles.webp" type="image/webp">
+                <img src="./img/hermosa-vista-montanas-rocosas-arboles.avif" alt="hermosa vista montañas rocosas y árboles" title="Vista de Montañas Rocosas" width="600" height="400" loading="lazy">
+            </picture>
+        </section>
+        <section id="elHotel" class="container">
+            <h2>Hotel Rural Mas Dels Avets</h2>
+            <picture>
+                <source srcset="./img/hotel.webp" type="image/webp">
+                <img src="./img/hotel.jpg" alt="Imagen exterior del Hotel" title="Fachada del Hotel" width="600" height="400" loading="lazy">
+            </picture>
+            <div>
+                <h3>Nuestras Habitaciones</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptas soluta consectetur quibusdam. Molestias blanditiis nobis dolor qui deserunt veniam voluptates doloribus deleniti aspernatur, dicta vero esse, sequi consequuntur hic.</p>
+                <p>Tempora iure explicabo quam recusandae quae delectus veniam quasi numquam sed aperiam, dolorum reiciendis, cupiditate ad? Dolor modi voluptatum aspernatur, totam exercitationem sed tempora libero quis? Excepturi voluptates eveniet praesentium?</p>
+                <h3>El restaurante</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, doloremque a quibusdam cum temporibus neque quos. Ratione soluta nostrum excepturi consequuntur. Exercitationem quas hic animi voluptatem error! Ipsa, optio cum.</p>
+                <h3>Servicios</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, repudiandae molestiae ut sapiente eius, assumenda, omnis praesentium error impedit tempora cum! Alias architecto quaerat at possimus dicta officiis, ullam soluta.</p>
+                <p>Ab corrupti minima hic, animi fugit asperiores necessitatibus tempora quasi delectus modi earum iure aliquam minus voluptas, soluta provident harum sit illo amet non. Officiis, odio. Quos dolorum ipsa sapiente.</p>
+                <p>Officia quia quod quaerat! Aut id, blanditiis expedita odio eius eos dolorum numquam iste facere totam itaque labore nam alias pariatur vel perspiciatis, harum asperiores et, est tempore facilis quisquam.</p>
+            </div>
+        </section>
+        <section id="recomendaciones" class="container">
+            <h2>Recomendaciones en la Montaña</h2>
+            <picture>
+                <source srcset="./img/aconit.webp" type="image/webp">
+                <img src="./img/aconit.jpg" alt="aconit" title="flor aconit" width="600" height="400" loading="lazy">
+            </picture>
+            <p>Hay una serie de recomendaciones que debemos tener en cuenta, porque hay <span class="good">cosas que se pueden hacer </span> y <span class="bad">cosas que no se pueden hacer</span>, ya que perjudican el medio natural e incluso pueden poner en riesgo nuestras vidas y las de los que nos rodean:</p>
+            <ul>
+                <li class="good">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <p>Respetar la flora y la fauna.</p>
+                </li>
+                <li class="good">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <p>Mantener limpio el entorno.</p>
+                </li>
+                <li class="bad">
+                    <i class="fa-solid fa-x"></i>
+                    <p>Hacer hogueras.</p>
+                </li>
+                <li class="good">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <p>Ir con calzado y ropa adecuados.</p>
+                </li>
+                <li class="bad">
+                    <i class="fa-solid fa-x"></i>
+                    <p>Recoger y consumir plantas y hongos de la naturaleza.</p>
+                </li>
+            </ul>
+        </section>
+        <section id="contacto" class="container">
+            <h2>Contacto</h2>
+            <picture>
+                <source srcset="./img/in-progress.webp" type="image/webp">
+                <img src="./img/in-progress.jpg" alt="Página en construcción" title="Sitio no disponible" width="600" height="400" loading="lazy">
+            </picture>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+    </footer>
+    <script defer src="./js/scripts.js"></script>
+</body>
+</html>
