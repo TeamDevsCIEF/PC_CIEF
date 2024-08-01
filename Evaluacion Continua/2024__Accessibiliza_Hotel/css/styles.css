@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+.good {
+    color: green;
+}
 
+.bad {
+    color: rgb(204, 20, 20);
+}
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -12,7 +20,11 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
-
+h1,h2{
+    font-family: "Playwrite CU", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -37,7 +49,6 @@ header {
     background-color: #007acc;
     color: white;
     padding: 1em;
-    margin: 1em 0;
 
     nav {
         ul {
@@ -56,8 +67,8 @@ header {
                     text-decoration: none;
                     padding: 0.5em;
 
-                    &:focus, &:hover {
-                        background-color: #005f99;
+                        &:hover {
+                        border-bottom: solid 1px;
                     }
                 }
             }
@@ -68,7 +79,6 @@ header {
 main {
     background: white;
     padding: 2em;
-    margin: 1em 0;
 
     section {
         display: none;
@@ -77,20 +87,19 @@ main {
             display: block;
         }
 
-        &.show-inicio {
-            display: block;
-        }
-
+        
         h1, h2, h3 {
             margin-bottom: 1em;
         }
 
-        h1 {
+        h1,h2 {
             font-size: 2em;
             font-weight: bold;
             text-align: center;
         }
-
+        h3{
+            font-size: 1.5em;
+        }
         img {
             width: 100%;
             height: auto;
@@ -103,6 +112,7 @@ main {
 
         p {
             margin-bottom: 1em;
+            font-size: 1.1em;
         }
 
         
@@ -121,13 +131,7 @@ main {
                     font-size: 1.5em;
                 }
 
-                .good {
-                    color: green;
-                }
-
-                .bad {
-                    color: rgb(204, 20, 20);
-                }
+                
             }
         }
     }
@@ -138,33 +142,53 @@ footer {
     color: white;
     text-align: center;
     padding: 1em;
-    margin: 1em 0;
 
     .container {
         ul {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             justify-content: space-around;
+            justify-items: center;
             list-style: none;
             gap: 1em;
 
             img {
                 max-width: 30px;
             }
+            
 
+            }
             li {
+                display: flex;
+                flex-direction: column;
+
+                
+                h2{
+                    margin-bottom: 2em;
+                }
                 ul {
                     display: flex;
                     flex-direction: column;
                     list-style: none;
-                    gap: 0.5em;
-
+                    gap: 1em;
+                    align-items: start;
+                    
                     li {
                         a {
                             color: white;
                             text-decoration: none;
+                            font-size: 1.1em;
+
+                            &:hover{
+                                border-bottom: solid 1px ;
+                            }
                         }
                     }
+                }
+
+                .footer_siguenos_ul{
+                    display: flex;
+                    flex-direction: row;
                 }
             }
         }
