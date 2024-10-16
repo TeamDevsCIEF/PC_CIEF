@@ -1,0 +1,135 @@
+/* css/styles.css */
+
+/* Estilos personalizados para los checkboxes de las sub-tareas */
+.subtarea-checkbox {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    border: 2px solid #6c757d;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.subtarea-checkbox:checked {
+    background-color: #198754; /* Color de Bootstrap para success */
+    border-color: #198754;
+}
+
+.subtarea-checkbox:hover {
+    cursor: pointer;
+    border-color: #0d6efd; /* Color de Bootstrap para primary */
+}
+
+/* Estilo para tachar el texto de la sub-tarea completada */
+.text-decoration-line-through {
+    text-decoration: line-through;
+}
+
+/* Ajustes para los botones de eliminar sub-tarea */
+.input-group .btn-outline-danger {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Mejorar la apariencia de los labels de sub-tareas */
+.list-group-item label {
+    cursor: pointer;
+}
+
+/* Estilo para el badge de prioridad */
+.priority-badge {
+    font-size: 0.8em;
+}
+
+/* Añadir margen superior a los títulos de sub-tareas */
+.card-body h6 {
+    margin-top: 15px;
+}
+
+
+
+
+
+.priority-badge {
+    position: absolute;
+    top: -8px;
+    right: -5px;
+    font-size: 0.8em;
+}
+.card {
+    position: relative;
+}
+/* Mejorar contraste de colores */
+.card-header.bg-primary {
+    background-color: #0d6efd !important;
+}
+.card-header.bg-warning {
+    background-color: #ffc107 !important;
+}
+.card-header.bg-success {
+    background-color: #198754 !important;
+}
+.card-header.bg-secondary {
+    background-color: #6c757d !important;
+}
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+}
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+}
+.badge.bg-info {
+    background-color: #0dcaf0 !important;
+}
+.badge.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+.subtarea-checkbox {
+width: 1.5em;
+height: 1.5em;
+border-radius: 50%;
+border: 2px solid #6c757d;
+transition: background-color 0.3s, border-color 0.3s;
+}
+
+.subtarea-checkbox:checked {
+background-color: #198754; /* Color de Bootstrap para success */
+border-color: #198754;
+}
+
+.subtarea-checkbox:hover {
+cursor: pointer;
+border-color: #0d6efd; /* Color de Bootstrap para primary */
+}
+
+/* Estilo para tachar el texto de la sub-tarea completada */
+.text-decoration-line-through {
+text-decoration: line-through;
+}
+
+.text-decoration-line-through {
+    text-decoration: line-through;
+}
+
+.card-NoN-Props{
+    border: none;
+    --bs-card-spacer-x:0;
+    --bs-card-bg:none;
+    box-shadow:none !important;
+
+}
+.card-header:first-child{
+    border-radius: 15px;
+}
+
+.card-eliminada {
+    position: relative;
+    padding-bottom: 60px; /* Adjust this value based on the button's height */
+}
+
+.card-eliminada .recuperar-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

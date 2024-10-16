@@ -1,0 +1,58 @@
+Hay que crear una aplicación para la gestión de tareas, similar a un "Trello".
+
+Hay que crear un formulario para crear tareas. Debe incluir al menos:
+Título, descripción y fecha límite.
+Al crear una tarea pasa automáticamente a "pendiente".
+
+Una tarea puede tener cuatro estados : Pendiente, Ejecución, Finalizada, Eliminada. 
+En un ordenador con pantalla horizontal aparecerá cada tipo en una columna, por tanto se verán las cuatro columnas.
+Se mostrarán por orden de incorporación.
+Hay que poder cambiar el estado de una tarea a cualquier otro.
+Por ejemplo, pasar una tarea de "pendiente" a "en ejecución" o "finalizada" o "eliminada". Y lo mismo para cualquier otro tipo.
+También hay que poder editar la tarea para cambiar cualquier valor.
+
+
+
+Ejemplo:
+Título: Estudiar mucho PHP
+Descripción: Me encanta PHP y le voy a dedicar un montón de horas 
+Fecha: 23/04/2024
+
+
+La aplicación debe mostrarse correctamente tanto en un ordenador de sobremesa como en un móvil.
+
+Debes entregar el código necesario (php y css) y la base de datos que has creado, que se llamará gestor_tareas_tuNombre. 
+Todo en un fichero zip, de esta manera : tuNombre_apellido_gestor_tareas.zip
+
+Código de referencia:
+https://github.com/classesdeferran/colores_favoritos
+
+
+
+Criterio de valoración:
+
+Código HTML + CSS : bien resuelto, aplicación "responsive" : 1 puntos
+Código HTML + CSS : con errores leves : 0.5 puntos
+Código HTML + CSS : mal resuelto : 0 puntos
+
+Código PHP : se muestran correctamente las listas de tareas, según su tipo, con los datos indicados : 2 puntos
+Código PHP : errores leves en la presentación : 1 puntos
+Código PHP : mal resuelto : 0 puntos
+
+Código PHP : cambio de estado de tareas (pasar de un tipo a otro), bien resuelto  : 2 puntos
+Código PHP : errores leves : 1 puntos
+Código PHP : mal resuelto : 0 puntos
+
+Código PHP : edición de tareas (cambio de título, descripción y/o fecha), bien resuelto  : 2 puntos
+Código PHP : errores leves : 1 puntos
+Código PHP : mal resuelto : 0 puntos
+
+Código PHP y/o HTML + CSS : aportación personal de alguna mejora a los requisitos básicos, bien resuelto  : 2 puntos
+Ejemplos de mejoras: incorporar jerarquía de prioridades (como urgente, normal, etc), usuarios, etc.
+Código PHP y/o HTML + CSS : errores leves : 1 puntos
+Código PHP y/o HTML + CSS : mal resuelto : 0 puntos
+
+Presentación : bien resuelto según los requisitos: : 1 punto
+Presentación : con errores leves : 0.5 puntos
+Presentación : mal resuelto : 0 puntos
+
