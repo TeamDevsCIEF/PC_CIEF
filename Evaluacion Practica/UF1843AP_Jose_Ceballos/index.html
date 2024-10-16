@@ -1,0 +1,210 @@
+<!-- El ejercicio consiste en hacer una página accesible, como se ve en el vídeo.
+El modelo te debe servir como referencia. -->
+<!-- Fíjate en las etiquetas que debes cambiar y en las cosas que faltan -->
+<!-- No te olvides de comentar generosamente lo que hagas  -->
+
+<!DOCTYPE html>
+<!--Colocar el idioma-->
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Etiquetas para mejorar el SEO -->
+  <meta name="author" content="Jos&eacute; Ceballos">
+  <meta name="description" content="La Casa Batlló, una obra maestra de la arquitectura modernista de Antonio Gaudí">
+  <meta name="keywords" content="Gaudí, Gaudi, Batllo, Batlló, arquitectura modernista">
+  <meta name="copyright" content="Jos&eacute; Ceballos">
+  <!--Poner titulo, css y favicon-->
+  <title>Casa Batlló</title>
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/anidado.css">
+</head>
+
+<body>
+  <!--Cambiar div por el header-->
+  <header class="fondo-color">
+    <div class="width-content">
+      <a id="skip-link" href="#">Saltar al contenido principal</a>
+      <h1 tabindex="0" id="inicio">La Casa Batlló</h1>
+      <h2 tabindex="0">Una obra maestra de la arquitectura modernista</h2>
+      <div class="width-content">
+        <!--Cambiar div por el ul-->
+        <ul>
+          <!--Cambiar p por el li-->
+          <li><a href="#antonio-gaudi">ANTONIO GAUDÍ</a></li>
+          <li><a href="#el-edificio">EL EDIFICIO</a></li>
+          <li><a href="#galeria">GALERÍA</a></li>
+          <li><a href="#el-modernismo">EL MODERNISMO</a></li>
+          <li><a href="#su-opinion">SU OPINIÓN</a></li>
+        </ul>
+      </div>
+
+      <img  class="imagenHeader" tabindex="0" src="img/346983-Casa-Batllo-1400.avif" alt="Fachada de la casa Batlló">
+
+    </div>
+  </header>
+
+  <main class="width-content" aria-label="Contenido principal">
+    <!--Cambiar los div por sections-->
+    <section id="antonio-gaudi" aria-label="Seccion sobre Antoni Gaudí">
+      <!--Cambiar p por h3-->
+      <h3 tabindex="0">Antoni Gaudí</h3>
+      <div>
+        <img tabindex="0" src="img/Antoni_Gaudi_1878.avif" alt="Fotografia de Antoni Gaudi">
+        <div>
+
+          <!--Colocar los textos dentro de parrafos-->
+          <p tabindex="0">Gaudí fue un arquitecto con un sentido innato de la geometría y el
+            volumen, así como una gran capacidad imaginativa que le permitía
+            proyectar mentalmente la mayoría de sus obras antes de pasarlas a
+            planos. De hecho, pocas veces realizaba planos detallados de sus
+            obras; prefería recrearlos sobre maquetas tridimensionales,
+            moldeando todos los detalles según los iba ideando mentalmente. En
+            otras ocasiones, iba improvisando sobre la marcha, dando
+            instrucciones a sus colaboradores sobre lo que debían hacer.</p>
+          
+            <p tabindex="0">Dotado de una fuerte intuición y capacidad creativa, Gaudí
+            concebía sus edificios de una forma global, atendiendo tanto a las
+            soluciones estructurales como a las funcionales y decorativas.
+            Estudiaba hasta el más mínimo detalle de sus creaciones,
+            integrando en la arquitectura toda una serie de trabajos
+            artesanales que dominaba él mismo a la perfección: cerámica,
+            vidriería, forja de hierro, carpintería, etc. Asimismo, introdujo
+            nuevas técnicas en el tratamiento de los materiales, como su
+            famoso trencadís hecho con piezas de cerámica de desecho.</p>
+
+            <a class="volver-inicio" href="#inicio">Volver al inicio &#8593;</a>
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="el-edificio" aria-label="Seccion sobre el edificion Batlló">
+      <h3 tabindex="0">El edificio</h3>
+      <div>
+        <div>
+          
+          <p tabindex="0">La Casa Batlló es un reflejo de la plenitud artística de Gaudí:
+            pertenece a su etapa naturalista (primera década del siglo XX),
+            periodo en que el arquitecto perfecciona su estilo personal,
+            inspirándose en las formas orgánicas de la naturaleza, para lo que
+            puso en práctica toda una serie de nuevas soluciones estructurales
+            originadas en los profundos análisis efectuados por Gaudí de la
+            geometría reglada. A ello añade el artista catalán una gran
+            libertad creativa y una imaginativa creación ornamental: partiendo
+            de cierto barroquismo sus obras adquieren gran riqueza
+            estructural, de formas y volúmenes desprovistos de rigidez
+            racionalista o de cualquier premisa clásica.</p>
+
+          <p tabindex="0">Sin embargo, como es habitual en las obras de Gaudí, el diseño y
+            la innegable artisticidad del conjunto no privan de que el
+            edificio esté concebido bajo el prisma de la funcionalidad, a la
+            que el arquitecto subordina todos los demás elementos. En ese
+            sentido, cabe resaltar la importancia otorgada tanto a la
+            iluminación como a la ventilación, dos ejes básicos para una vida
+            sana y confortable en un edificio de viviendas. Para ello dispuso
+            un gran patio central en el centro del edificio, al que daban las
+            habitaciones de servicios, mientras que los salones y los
+            dormitorios daban a la fachada. Este patio también articulaba el
+            movimiento dentro del edificio, a través de escaleras y un
+            ascensor.</p>
+
+            <a class="volver-inicio" href="#inicio">Volver al inicio &#8593;</a>
+
+        </div>
+        <img  tabindex="0" src="img/fachada-590x760.avif" alt="Fachada superior de la Casa Batlló">
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h3 tabindex="0">Galería de imágenes</h3>
+      <div class="galeria-fotos">
+        <img tabindex="0" src="img/salon.avif" alt="Interior del salon" >
+
+        <img tabindex="0" src="img/detall.avif" alt="Lampara circular" >
+
+        <img tabindex="0" src="img/pati2.avif" alt="Patio">
+
+        <img tabindex="0" src="img/terrat.avif" alt="Terrasa">
+
+        <a class="volver-inicio" href="#inicio">Volver al inicio &#8593;</a>
+
+      </div>
+    </section>
+
+    <section id="el-modernismo">
+      <h3 tabindex="0">El modernismo</h3>
+      <div>
+        <img tabindex="0" src="img/casa_mila.avif" alt="Fachada lateral casa Batlló">
+        <div>
+          
+          <p tabindex="0">El modernismo rechaza el estilo poco atractivo de la arquitectura
+            industrial de la primera mitad del siglo XIX, y desarrolla nuevos
+            conceptos arquitectónicos basados en la naturaleza, que consisten
+            en los materiales de construcción que se emplean, en las formas de
+            los edificios y en las figuras de sus fachadas. Los arquitectos y
+            sus escultores colocan en el exterior de los edificios pájaros,
+            mariposas, hojas y flores a modo de elementos decorativos, ya sea
+            como figuras adosadas o como adorno de la piedra o cerámica.
+            También se colocan figuras de tamaño mayor, animales fabulosos o
+            personas, y en las cornisas elementos de cerámica de color. Las
+            ventanas y los balcones disponen de rejas de hierro forjado, que
+            son labradas artísticamente y contienen motivos inspirados en la
+            naturaleza.</p> 
+
+          <p tabindex="0">Los arquitectos aprovecharon los materiales nuevos y
+            reconvirtieron el uso de los ya conocidos. Algunos comunes en el
+            modernismo fueron el hierro (muy presente en diversas obras,
+            dejando la herrería al descubierto), la cerámica, el vidrio, los
+            cristales, la madera, el yeso, la piedra, los ladrillos y la
+            pintura entre otros, también se reintegró la escultura a la
+            arquitectura como una de sus principales cualidades.</p>
+           
+
+            <a class="volver-inicio" href="#inicio">Volver al inicio &#8593;</a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="fondo-color">
+    <div class="width-content">
+      <div id="su-opinion">
+        <form>
+          <fieldset>
+            <legend tabindex="0">Por favor denos su opinión</legend>
+            <p tabindex="0" class="p-fieldset">Es necesario rellenar todos los campos</p>
+            <!-- Se agregaran los aria required para informar a los usuarios de forma mas accesible -->
+            <label>Su nombre:<input type="text" required aria-required="true"></label>
+            <label>Su opinión:<input type="text" required aria-required="true"></label>
+
+            <div>
+              <button class="boton" type="submit">Enviar opinión</button>
+            </div>
+          </fieldset>
+
+        </form>
+      </div>
+      <div class="redes-sociales">
+        <p tabindex="0">Nuestras redes sociales</p>
+        <div>
+          <!-- Utilizaremos los aria label para que se indique la informacion del enlace -->
+          <a href="https://facebook.com" target="_blank" ><img class="redes" alt="Enlace a facebook"
+              src="img/c_facebook.png" ></a>
+          <a href="https://instagram.com" target="_blank" ><img class="redes" alt="Enlace a instagram"
+              src="img/c_instagram.png" ></a>
+          <a href="https://youtube.com" target="_blank" ><img class="redes" alt="Enlace a youtube"
+              src="img/c_youtube.png" ></a>
+        </div>
+        <p tabindex="0" aria-label="Derechos reservados">&#169; Jos&eacute; Ceballos</p>
+        <a class="volver-inicio" href="#inicio">Volver al inicio &#8593;</a>
+      </div>
+    </div>
+
+  </footer>
+</body>
+
+</html>

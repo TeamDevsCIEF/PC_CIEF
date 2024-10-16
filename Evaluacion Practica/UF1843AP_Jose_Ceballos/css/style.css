@@ -1,0 +1,233 @@
+/* Seccion para insertar la fuente a utilizar */
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Mako&family=Salsa&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--text-normal);
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+:root {
+    --primary-color: #e4f3d8;
+    --secondary-color: #8d093e;
+    --text-color: black;
+    --hover-color: #ffa02e;
+    --backgroung-color: #b7d2d4;
+    --width-content: 1200px;
+    --text-normal: "Mako", sans-serif;
+    --text-title: "Belanosima", cursive;
+}
+
+.width-content {
+    width: var(--width-content);
+    margin: 0 auto;
+}
+
+.fondo-color {
+    background-color: var(--backgroung-color);
+}
+
+/* Para volver al inicio */
+.volver-inicio a {
+    padding: 10px;
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+.volver-inicio a:hover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Enlace oculto */
+#skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Títulos y textos */
+h1,
+h2,
+h3 {
+    font-family: var(--text-title);
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 3rem;
+    padding: 15px 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+
+}
+
+p {
+    padding-bottom: 15px;
+}
+
+/* Header ==================================== */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    border-top: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    margin: 20px 0;
+
+}
+
+header li {
+    padding: 15px 12px;
+}
+
+header li:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+header ul a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+}
+
+/* main ===================================== */
+main {
+    padding: 20px 0;
+}
+
+section>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-top: 4px solid var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+section div img {
+    width: 48%;
+}
+
+section>div>div {
+    padding: 20px;
+    width: 48%;
+}
+
+.galeria-fotos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.galeria-fotos img {
+    margin: 15px 0;
+    width: 48%;
+}
+
+/* footer ====================================== */
+footer {
+    padding: 30px 0;
+}
+
+footer>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Area para dejar tu opinion */
+#su-opinion {
+    width: 68%;
+}
+
+fieldset {
+    padding: 15px;
+}
+
+.p-fieldset {
+    text-align: center;
+    font-size: 1rem;
+}
+
+label {
+    display: block;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+    color: var(--text-color);
+    background-color: var(--backgroung-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Area para las redes sociales */
+.redes-sociales {
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.redes-sociales div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.redes-sociales img {
+    width: 4vw;
+}
+
+.redes-sociales img:hover {
+    scale: 1.15;
+}
+
